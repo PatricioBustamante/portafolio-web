@@ -26,11 +26,13 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
 <!-- Cursor -->
-<div class="cursor-dot" id="cursor"></div>
+<div class="cursor-dot" id="cursor" aria-hidden="true"></div>
 
 <!-- Loader -->
-<div class="loader" id="loader">
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Cargando sitio">
   <svg class="loader-logo" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M509.62 532.77C545.17 513.5 577 489.71 596.05 454C596.05 449.33 557.95 407.92 505.35 406.04C453.8 459.94 420.22 455.14 350.45 454.94C335.2 455.42 319.59 454.56 304.26 454.98H285.13V557.62H322.3V557.55C385.22 557.21 452.64 564.87 509.63 532.77H509.62Z" fill="url(#loaderGrad1)" transform="translate(-148, -105)"/>
     <path d="M731.15 449.71C720.14 406.95 696.2 368.47 662.77 339.1C655.78 331.94 647 324.92 636.87 318.66C636.77 318.54 636.6 318.44 636.4 318.37C635.21 317.64 634.01 316.92 632.79 316.22C632.08 315.81 631.38 315.42 630.67 315.03C630.37 312.82 630.04 310.59 629.65 308.34C627.92 298.16 625.49 288.55 622.58 279.78C604.36 207.09 553.34 150.17 485.5 121.68C451.18 105.88 404.39 103.27 365.5 105.88C301 114.37 242.34 149.27 202.8 199.98C201.63 200.38 202.32 202.94 201.2 203.38C187.64 218.1 165.87 260.63 162 279.68C157.17 294.04 153.78 306.01 151.5 323.68C148.1 349.98 148.1 351.68 148 538.38C148 605.66 148 648.3 148.1 675.39V727.1H251.97V675.39C252.13 647.56 252.2 603.53 252.31 533.78C252.36 498.66 252.43 463.53 252.59 428.41C252.68 407.51 252.78 386.61 253.05 365.7C253.3 345.87 254.51 327.22 261.69 308.57C271.24 283.74 285.71 261.87 305.63 244.26C333.76 219.39 371.2 207.43 408.55 210.13C417.74 210.79 426.98 212.21 435.81 214.88C452.72 220.53 469.18 228.96 482.44 241C493.53 251.07 504.75 263.03 511.72 276.42C512.06 277.08 513 278.34 513 279.08H344.63V285.26H344.7V380.06C344.7 380.06 385.41 380.06 385.41 380.04C397.63 380.11 413.5 380.15 433.99 380.18C526.69 380.18 527.93 381.56 549.49 386.18C575.52 394.35 601.71 413.72 617.49 439.68C643.08 481.79 640.94 538.94 611.03 578.33C593.09 601.97 563.52 621.24 533.28 624.58C499.82 628.27 465.26 626.21 431.69 626.18H338.29C338.29 626.18 338.23 626.19 338.2 626.21H336.61V727.09C336.61 727.09 364.79 727.09 364.79 727.07C420.14 727.23 546.53 726.24 551.49 725.37C573.48 721.34 579.48 719.1 596.79 713.17C695.31 679.42 750.81 570.33 735.43 470.56C734.34 463.51 732.91 456.55 731.15 449.7V449.71Z" fill="url(#loaderGrad2)" transform="translate(-148, -105)"/>
@@ -49,33 +51,41 @@
 </div>
 
 <!-- Navigation -->
-<nav class="nav">
-  <a href="../index.html" class="nav-logo magnetic">
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<nav class="nav" aria-label="Principal">
+  <a href="../index.html" class="nav-logo magnetic" aria-label="Patricio Bustamante — Inicio">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <path d="M509.62 532.77C545.17 513.5 577 489.71 596.05 454C596.05 449.33 557.95 407.92 505.35 406.04C453.8 459.94 420.22 455.14 350.45 454.94C335.2 455.42 319.59 454.56 304.26 454.98H285.13V557.62H322.3V557.55C385.22 557.21 452.64 564.87 509.63 532.77H509.62Z" fill="currentColor" transform="translate(-148, -105) scale(0.155)"/>
       <path d="M731.15 449.71C720.14 406.95 696.2 368.47 662.77 339.1C655.78 331.94 647 324.92 636.87 318.66C636.77 318.54 636.6 318.44 636.4 318.37C635.21 317.64 634.01 316.92 632.79 316.22C632.08 315.81 631.38 315.42 630.67 315.03C630.37 312.82 630.04 310.59 629.65 308.34C627.92 298.16 625.49 288.55 622.58 279.78C604.36 207.09 553.34 150.17 485.5 121.68C451.18 105.88 404.39 103.27 365.5 105.88C301 114.37 242.34 149.27 202.8 199.98C201.63 200.38 202.32 202.94 201.2 203.38C187.64 218.1 165.87 260.63 162 279.68C157.17 294.04 153.78 306.01 151.5 323.68C148.1 349.98 148.1 351.68 148 538.38C148 605.66 148 648.3 148.1 675.39V727.1H251.97V675.39C252.13 647.56 252.2 603.53 252.31 533.78C252.36 498.66 252.43 463.53 252.59 428.41C252.68 407.51 252.78 386.61 253.05 365.7C253.3 345.87 254.51 327.22 261.69 308.57C271.24 283.74 285.71 261.87 305.63 244.26C333.76 219.39 371.2 207.43 408.55 210.13C417.74 210.79 426.98 212.21 435.81 214.88C452.72 220.53 469.18 228.96 482.44 241C493.53 251.07 504.75 263.03 511.72 276.42C512.06 277.08 513 278.34 513 279.08H344.63V285.26H344.7V380.06C344.7 380.06 385.41 380.06 385.41 380.04C397.63 380.11 413.5 380.15 433.99 380.18C526.69 380.18 527.93 381.56 549.49 386.18C575.52 394.35 601.71 413.72 617.49 439.68C643.08 481.79 640.94 538.94 611.03 578.33C593.09 601.97 563.52 621.24 533.28 624.58C499.82 628.27 465.26 626.21 431.69 626.18H338.29C338.29 626.18 338.23 626.19 338.2 626.21H336.61V727.09C336.61 727.09 364.79 727.09 364.79 727.07C420.14 727.23 546.53 726.24 551.49 725.37C573.48 721.34 579.48 719.1 596.79 713.17C695.31 679.42 750.81 570.33 735.43 470.56C734.34 463.51 732.91 456.55 731.15 449.7V449.71Z" fill="currentColor" transform="translate(-148, -105) scale(0.155)"/>
     </svg>
     <span class="nav-logo-text">Patricio Bustamante</span>
   </a>
 
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="work.html" class="magnetic is-active"><span class="nav-num">01</span>Work</a>
     <a href="about.html" class="magnetic"><span class="nav-num">02</span>About</a>
     <a href="../index.html#contact" class="magnetic"><span class="nav-num">03</span>Contact</a>
   </div>
 
-  <div class="nav-status">
-    <div class="status-dot"></div>
-    Open to work
-  </div>
+  <p class="nav-status" role="status">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="sr-only">Estado: </span>Open to work
+  </p>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
 </nav>
 
+<main id="main-content">
+
 <!-- Page hero -->
-<section class="page-hero">
+<section class="page-hero" aria-labelledby="work-title">
   <div class="page-hero-layout">
     <div>
-      <div class="page-hero-eyebrow">01 — Selected Work</div>
-      <h1 class="page-hero-title">
+      <p class="page-hero-eyebrow">01 — Selected Work</p>
+      <h1 class="page-hero-title" id="work-title">
         Proyectos<br><em>recientes</em>
       </h1>
     </div>
@@ -88,7 +98,7 @@
 </section>
 
 <!-- Marquee -->
-<div class="marquee">
+<div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">Fintech</span>
     <span class="marquee-dot"></span>
@@ -121,8 +131,8 @@
 <!-- Projects -->
 <section class="projects-section with-padding" id="work">
   <div class="project-list reveal-stagger">
-    <a href="#" class="project" data-preview="1">
-      <div class="project-num">001</div>
+    <a href="#" class="project" data-preview="1" aria-label="Proyecto 001: Orbita Finance, Fintech 2026">
+      <div class="project-num" aria-hidden="true">001</div>
       <div class="project-info">
         <div class="project-title">Orbita Finance</div>
         <div class="project-subtitle">Fintech &middot; 2026</div>
@@ -133,15 +143,15 @@
         <span class="project-tag">Mobile</span>
         <span class="project-tag">Design System</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="2">
-      <div class="project-num">002</div>
+    <a href="#" class="project" data-preview="2" aria-label="Proyecto 002: Nimbus Studio, SaaS 2025">
+      <div class="project-num" aria-hidden="true">002</div>
       <div class="project-info">
         <div class="project-title">Nimbus Studio</div>
         <div class="project-subtitle">SaaS &middot; 2025</div>
@@ -152,15 +162,15 @@
         <span class="project-tag">Web App</span>
         <span class="project-tag">Strategy</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="3">
-      <div class="project-num">003</div>
+    <a href="#" class="project" data-preview="3" aria-label="Proyecto 003: Mesa y Co., E-commerce 2025">
+      <div class="project-num" aria-hidden="true">003</div>
       <div class="project-info">
         <div class="project-title">Mesa &amp; Co.</div>
         <div class="project-subtitle">E-commerce &middot; 2025</div>
@@ -170,15 +180,15 @@
         <span class="project-tag">E-commerce</span>
         <span class="project-tag">Branding</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="4">
-      <div class="project-num">004</div>
+    <a href="#" class="project" data-preview="4" aria-label="Proyecto 004: Hojaverde, Wellness 2024">
+      <div class="project-num" aria-hidden="true">004</div>
       <div class="project-info">
         <div class="project-title">Hojaverde</div>
         <div class="project-subtitle">Wellness &middot; 2024</div>
@@ -189,15 +199,15 @@
         <span class="project-tag">Mobile</span>
         <span class="project-tag">Research</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="5">
-      <div class="project-num">005</div>
+    <a href="#" class="project" data-preview="5" aria-label="Proyecto 005: Atlas Coffee, Web Editorial 2024">
+      <div class="project-num" aria-hidden="true">005</div>
       <div class="project-info">
         <div class="project-title">Atlas Coffee</div>
         <div class="project-subtitle">Web &middot; 2024</div>
@@ -208,15 +218,15 @@
         <span class="project-tag">Editorial</span>
         <span class="project-tag">F&amp;B</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="1">
-      <div class="project-num">006</div>
+    <a href="#" class="project" data-preview="1" aria-label="Proyecto 006: Vértice Health, Healthtech 2024">
+      <div class="project-num" aria-hidden="true">006</div>
       <div class="project-info">
         <div class="project-title">Vértice Health</div>
         <div class="project-subtitle">Healthtech &middot; 2024</div>
@@ -227,15 +237,15 @@
         <span class="project-tag">Web App</span>
         <span class="project-tag">Accesibilidad</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="2">
-      <div class="project-num">007</div>
+    <a href="#" class="project" data-preview="2" aria-label="Proyecto 007: Pulpo Logistics, Logística 2023">
+      <div class="project-num" aria-hidden="true">007</div>
       <div class="project-info">
         <div class="project-title">Pulpo Logistics</div>
         <div class="project-subtitle">Logística &middot; 2023</div>
@@ -246,15 +256,15 @@
         <span class="project-tag">B2B</span>
         <span class="project-tag">Data Viz</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="3">
-      <div class="project-num">008</div>
+    <a href="#" class="project" data-preview="3" aria-label="Proyecto 008: Marea Editorial, Medios 2023">
+      <div class="project-num" aria-hidden="true">008</div>
       <div class="project-info">
         <div class="project-title">Marea Editorial</div>
         <div class="project-subtitle">Medios &middot; 2023</div>
@@ -264,15 +274,15 @@
         <span class="project-tag">Editorial</span>
         <span class="project-tag">CMS</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="4">
-      <div class="project-num">009</div>
+    <a href="#" class="project" data-preview="4" aria-label="Proyecto 009: Norte Sur Travel, Travel 2023">
+      <div class="project-num" aria-hidden="true">009</div>
       <div class="project-info">
         <div class="project-title">Norte Sur Travel</div>
         <div class="project-subtitle">Travel &middot; 2023</div>
@@ -282,15 +292,15 @@
         <span class="project-tag">Travel</span>
         <span class="project-tag">Mobile</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
 
-    <a href="#" class="project" data-preview="5">
-      <div class="project-num">010</div>
+    <a href="#" class="project" data-preview="5" aria-label="Proyecto 010: Faro Académico, EdTech 2023">
+      <div class="project-num" aria-hidden="true">010</div>
       <div class="project-info">
         <div class="project-title">Faro Académico</div>
         <div class="project-subtitle">EdTech &middot; 2023</div>
@@ -301,17 +311,17 @@
         <span class="project-tag">Web App</span>
         <span class="project-tag">Design System</span>
       </div>
-      <div class="project-arrow magnetic">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <span class="project-arrow magnetic" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
           <path d="M3 13L13 3M13 3H5M13 3V11"/>
         </svg>
-      </div>
+      </span>
     </a>
   </div>
 </section>
 
-<!-- Preview floating element -->
-<div class="project-preview" id="preview">
+<!-- Preview floating element (decorative, follows cursor) -->
+<div class="project-preview" id="preview" aria-hidden="true">
   <div class="project-preview-inner" id="previewInner">
     <span class="preview-title"></span>
     <span class="preview-type"></span>
@@ -319,19 +329,19 @@
 </div>
 
 <!-- Contact -->
-<section class="contact" id="contact">
-  <div class="contact-label reveal">03 — Get in touch</div>
-  <h2 class="contact-headline reveal">
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <p class="contact-label reveal">03 — Get in touch</p>
+  <h2 class="contact-headline reveal" id="contact-title">
     ¿Te gustó lo que<br><em>viste</em>? Hablemos.
   </h2>
 
-  <a href="mailto:pbustamanteinzunza@gmail.com" class="contact-email-link reveal magnetic">
+  <a href="mailto:pbustamanteinzunza@gmail.com" class="contact-email-link reveal magnetic" aria-label="Enviar email a pbustamanteinzunza@gmail.com">
     pbustamanteinzunza@gmail.com
-    <div class="contact-arrow">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+    <span class="contact-arrow" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
         <path d="M3 13L13 3M13 3H5M13 3V11"/>
       </svg>
-    </div>
+    </span>
   </a>
 
   <div class="contact-grid reveal-stagger">
@@ -345,9 +355,9 @@
     <div class="contact-block">
       <div class="contact-block-label">Social</div>
       <div class="contact-block-content">
-        <a href="#">LinkedIn &#8599;</a><br>
-        <a href="#">Dribbble &#8599;</a><br>
-        <a href="#">Behance &#8599;</a>
+        <a href="https://linkedin.com/in/patrbustamante" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">&#8599;</span><span class="sr-only">(abre en nueva ventana)</span></a><br>
+        <a href="#" aria-disabled="true">Dribbble <span aria-hidden="true">&#8599;</span></a><br>
+        <a href="#" aria-disabled="true">Behance <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
     <div class="contact-block">
@@ -363,23 +373,28 @@
       <div class="contact-block-content">
         Aceptando proyectos<br>
         para Q3 — Q4 2026<br>
-        <a href="#">Descargar CV &#8599;</a>
+        <a href="#" aria-disabled="true">Descargar CV <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- Footer -->
-<footer>
-  <a href="../index.html" class="footer-logo magnetic">
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<footer role="contentinfo">
+  <a href="../index.html" class="footer-logo magnetic" aria-label="Volver al inicio">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <path d="M509.62 532.77C545.17 513.5 577 489.71 596.05 454C596.05 449.33 557.95 407.92 505.35 406.04C453.8 459.94 420.22 455.14 350.45 454.94C335.2 455.42 319.59 454.56 304.26 454.98H285.13V557.62H322.3V557.55C385.22 557.21 452.64 564.87 509.63 532.77H509.62Z" fill="currentColor" transform="translate(-148, -105) scale(0.155)"/>
       <path d="M731.15 449.71C720.14 406.95 696.2 368.47 662.77 339.1C655.78 331.94 647 324.92 636.87 318.66C636.77 318.54 636.6 318.44 636.4 318.37C635.21 317.64 634.01 316.92 632.79 316.22C632.08 315.81 631.38 315.42 630.67 315.03C630.37 312.82 630.04 310.59 629.65 308.34C627.92 298.16 625.49 288.55 622.58 279.78C604.36 207.09 553.34 150.17 485.5 121.68C451.18 105.88 404.39 103.27 365.5 105.88C301 114.37 242.34 149.27 202.8 199.98C201.63 200.38 202.32 202.94 201.2 203.38C187.64 218.1 165.87 260.63 162 279.68C157.17 294.04 153.78 306.01 151.5 323.68C148.1 349.98 148.1 351.68 148 538.38C148 605.66 148 648.3 148.1 675.39V727.1H251.97V675.39C252.13 647.56 252.2 603.53 252.31 533.78C252.36 498.66 252.43 463.53 252.59 428.41C252.68 407.51 252.78 386.61 253.05 365.7C253.3 345.87 254.51 327.22 261.69 308.57C271.24 283.74 285.71 261.87 305.63 244.26C333.76 219.39 371.2 207.43 408.55 210.13C417.74 210.79 426.98 212.21 435.81 214.88C452.72 220.53 469.18 228.96 482.44 241C493.53 251.07 504.75 263.03 511.72 276.42C512.06 277.08 513 278.34 513 279.08H344.63V285.26H344.7V380.06C344.7 380.06 385.41 380.06 385.41 380.04C397.63 380.11 413.5 380.15 433.99 380.18C526.69 380.18 527.93 381.56 549.49 386.18C575.52 394.35 601.71 413.72 617.49 439.68C643.08 481.79 640.94 538.94 611.03 578.33C593.09 601.97 563.52 621.24 533.28 624.58C499.82 628.27 465.26 626.21 431.69 626.18H338.29C338.29 626.18 338.23 626.19 338.2 626.21H336.61V727.09C336.61 727.09 364.79 727.09 364.79 727.07C420.14 727.23 546.53 726.24 551.49 725.37C573.48 721.34 579.48 719.1 596.79 713.17C695.31 679.42 750.81 570.33 735.43 470.56C734.34 463.51 732.91 456.55 731.15 449.7V449.71Z" fill="currentColor" transform="translate(-148, -105) scale(0.155)"/>
     </svg>
   </a>
-  <div>&#169; 2026 — Patricio Bustamante</div>
-  <div class="footer-time" id="localTime">--:--:-- CLT</div>
-  <div>Made with care &middot; Chile</div>
+  <p>&#169; 2026 — Patricio Bustamante</p>
+  <p class="footer-time" id="localTime" aria-label="Hora local en Chile">--:--:-- CLT</p>
+  <button type="button" class="cursor-toggle" aria-pressed="true" aria-label="Activar o desactivar cursor personalizado">
+    Cursor <span class="cursor-toggle-state" aria-hidden="true">On</span>
+  </button>
+  <p>Made with care &middot; Chile</p>
 </footer>
 
 <script src="../js/main.js"></script>

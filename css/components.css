@@ -158,6 +158,71 @@
   animation: pulse 2.4s ease-in-out infinite;
 }
 
+/* ===== Nav toggle (hamburger) =====
+   Touch target ≥ 44×44 (WCAG 2.5.5 AAA).
+   Visual: 3 stacked bars of varied widths → X on open. */
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  z-index: calc(var(--z-nav) + 2);
+}
+.nav-toggle:active {
+  transform: scale(0.94);
+}
+.nav-toggle-bar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: var(--radius-xs);
+  transform-origin: center;
+  transition:
+    width 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo),
+    opacity 0.25s ease;
+  will-change: transform, opacity, width;
+}
+/* Three bars: top short, middle wide, bottom medium */
+.nav-toggle-bar:nth-child(1) {
+  width: 14px;
+  transform: translate(-50%, -8px);
+}
+.nav-toggle-bar:nth-child(2) {
+  width: 20px;
+  transform: translate(-50%, -50%);
+}
+.nav-toggle-bar:nth-child(3) {
+  width: 17px;
+  transform: translate(calc(-50% + 1.5px), 6px);
+}
+/* Open state: 3 bars converge into a cross (asterisk). */
+body.menu-open .nav-toggle .nav-toggle-bar {
+  width: 22px;
+  opacity: 1;
+  transition:
+    width 0.3s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo),
+    opacity 0.2s ease;
+}
+body.menu-open .nav-toggle .nav-toggle-bar:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+body.menu-open .nav-toggle .nav-toggle-bar:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+body.menu-open .nav-toggle .nav-toggle-bar:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 /* ===== Marquee ===== */
 .marquee {
   border-top: 1px solid var(--color-line);

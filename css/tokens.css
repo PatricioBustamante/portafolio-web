@@ -13,14 +13,25 @@
   --color-bg-deep: #ebe7e0;
   --color-bg-inverted: #1a1a18;
 
-  /* ===== Color · Ink (text) ===== */
+  /* ===== Color · Ink (text) =====
+     Contrast on --color-bg (#f4f1ec):
+       ink       — 16.3:1 (AAA)
+       ink-soft  —  7.8:1 (AAA)
+       ink-mute  —  4.98:1 (AA normal)  ← bumped from #8a8a85 (3.1:1, failed)
+     Contrast on --color-bg-inverted (#1a1a18):
+       on-dark         — 16.3:1 (AAA)
+       on-dark-soft    —  7.6:1 (AAA)
+       on-dark-mute    —  5.2:1 (AA normal) ← bumped 0.4→0.5
+       on-dark-faint   —  5.8:1 (AA normal) ← bumped 0.35→0.55 */
   --color-ink: #1a1a18;
   --color-ink-soft: #4a4a47;
-  --color-ink-mute: #8a8a85;
+  --color-ink-mute: #6a6a66;
   --color-ink-on-dark: #f4f1ec;
   --color-ink-on-dark-soft: rgba(244, 241, 236, 0.65);
-  --color-ink-on-dark-mute: rgba(244, 241, 236, 0.4);
-  --color-ink-on-dark-faint: rgba(244, 241, 236, 0.35);
+  --color-ink-on-dark-mute: rgba(244, 241, 236, 0.5);
+  --color-ink-on-dark-faint: rgba(244, 241, 236, 0.55);
+  /* Decorative only — do NOT use for text */
+  --color-ink-on-dark-decorative: rgba(244, 241, 236, 0.35);
 
   /* ===== Color · Lines & dividers ===== */
   --color-line: rgba(26, 26, 24, 0.12);
