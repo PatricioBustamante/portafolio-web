@@ -18,9 +18,9 @@ class SiteFooter extends HTMLElement {
   <p>&copy; ${year} — Patricio Bustamante</p>
   <p class="footer-time" id="localTime" aria-label="Hora local en Chile">--:--:-- CLT</p>
   <button type="button" class="cursor-toggle" aria-pressed="true" aria-label="Activar o desactivar cursor personalizado">
-    Cursor <span class="cursor-toggle-state" aria-hidden="true">On</span>
+    Cursor <span class="cursor-toggle-state" aria-hidden="true">Activado</span>
   </button>
-  <p>Made with care &middot; Chile</p>
+  <p>Hecho con cariño &middot; Chile</p>
 </footer>`;
   }
 }

@@ -26,14 +26,14 @@ class SiteHeader extends HTMLElement {
   </a>
 
   <div class="nav-links" id="navLinks">
-    <a href="${workHref}" class="magnetic${isWork}"${isWork ? ' aria-current="page"' : ''}><span class="nav-num">01</span>Work</a>
-    <a href="${aboutHref}" class="magnetic${isAbout}"${isAbout ? ' aria-current="page"' : ''}><span class="nav-num">02</span>About</a>
-    <a href="${base}index.html#contact" class="magnetic"><span class="nav-num">03</span>Contact</a>
+    <a href="${workHref}" class="magnetic${isWork}"${isWork ? ' aria-current="page"' : ''}><span class="nav-num">01</span>Proyectos</a>
+    <a href="${aboutHref}" class="magnetic${isAbout}"${isAbout ? ' aria-current="page"' : ''}><span class="nav-num">02</span>Sobre mí</a>
+    <a href="${base}index.html#contact" class="magnetic"><span class="nav-num">03</span>Contacto</a>
   </div>
 
   <p class="nav-status" role="status">
     <span class="status-dot" aria-hidden="true"></span>
-    <span class="sr-only">Estado: </span>Open to work
+    <span class="sr-only">Estado: </span>Disponible
   </p>
 
   <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
