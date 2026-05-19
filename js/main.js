@@ -260,13 +260,15 @@ if (navToggle && navLinksEl) {
 
 // ===== Nav background on scroll =====
 const nav = document.querySelector('.nav');
-const navScrollMQ = window.matchMedia('(min-width: 769px)');
-window.addEventListener('scroll', () => {
-  if (!navScrollMQ.matches) {
-    nav.style.padding = '';
-    return;
-  }
-  nav.style.padding = window.pageYOffset > 100
-    ? 'var(--space-2) var(--container-px)'
-    : 'var(--space-3) var(--container-px)';
-}, { passive: true });
+if (nav) {
+  const navScrollMQ = window.matchMedia('(min-width: 769px)');
+  window.addEventListener('scroll', () => {
+    if (!navScrollMQ.matches) {
+      nav.style.padding = '';
+      return;
+    }
+    nav.style.padding = window.pageYOffset > 100
+      ? 'var(--space-2) var(--container-px)'
+      : 'var(--space-3) var(--container-px)';
+  }, { passive: true });
+}

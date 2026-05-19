@@ -92,14 +92,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  mix-blend-mode: difference;
-  color: var(--color-bg);
+  color: var(--color-ink);
+  background: rgba(244, 241, 236, 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(26, 26, 24, 0.06);
+  transition: background var(--duration-base) ease;
 }
 .nav-logo {
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
+.nav-logo-mark {
+  height: var(--space-4);
+  width: auto;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+.nav-logo:hover .nav-logo-mark {
+  transform: rotate(-8deg) scale(1.05);
+}
+/* Legacy support: any inline SVG logo retains old sizing */
 .nav-logo svg {
   height: var(--space-3);
   width: auto;
