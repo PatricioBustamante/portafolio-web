@@ -20,21 +20,25 @@ const loaderInterval = setInterval(() => {
 const cursor = document.getElementById('cursor');
 let mouseX = 0, mouseY = 0;
 let cursorX = 0, cursorY = 0;
+let cursorLastTime = 0;
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
 
-function animateCursor() {
-  const speed = 0.15;
-  cursorX += (mouseX - cursorX) * speed;
-  cursorY += (mouseY - cursorY) * speed;
+function animateCursor(timestamp) {
+  const delta = cursorLastTime ? Math.min(timestamp - cursorLastTime, 50) : 16.67;
+  cursorLastTime = timestamp;
+  // Lerp frame-rate independent: misma suavidad a 60, 120 o 144 Hz
+  const k = 1 - Math.pow(0.82, delta / 16.67);
+  cursorX += (mouseX - cursorX) * k;
+  cursorY += (mouseY - cursorY) * k;
   cursor.style.left = cursorX + 'px';
   cursor.style.top = cursorY + 'px';
   requestAnimationFrame(animateCursor);
 }
-animateCursor();
+requestAnimationFrame(animateCursor);
 
 // Cursor states
 document.querySelectorAll('a, button, .project, .magnetic').forEach(el => {

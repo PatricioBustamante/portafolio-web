@@ -1,0 +1,152 @@
+/* ============================================
+   DESIGN TOKENS
+   Foundational system for the portfolio.
+
+   Spacing follows an 8-grid scale.
+   Naming: --space-{n} where each unit = n × 8px.
+   Half step --space-h = 4px (0.5 × 8).
+   ============================================ */
+
+:root {
+  /* ===== Color · Surfaces ===== */
+  --color-bg: #f4f1ec;
+  --color-bg-deep: #ebe7e0;
+  --color-bg-inverted: #1a1a18;
+
+  /* ===== Color · Ink (text) ===== */
+  --color-ink: #1a1a18;
+  --color-ink-soft: #4a4a47;
+  --color-ink-mute: #8a8a85;
+  --color-ink-on-dark: #f4f1ec;
+  --color-ink-on-dark-soft: rgba(244, 241, 236, 0.65);
+  --color-ink-on-dark-mute: rgba(244, 241, 236, 0.4);
+  --color-ink-on-dark-faint: rgba(244, 241, 236, 0.35);
+
+  /* ===== Color · Lines & dividers ===== */
+  --color-line: rgba(26, 26, 24, 0.12);
+  --color-line-light: rgba(244, 241, 236, 0.12);
+  --color-line-strong: rgba(244, 241, 236, 0.25);
+
+  /* ===== Color · Brand & state ===== */
+  --color-accent: #fa3e33;
+  --color-accent-warm: #f87a38;
+  --color-accent-gold: #fdb85b;
+  --color-success: #4ade80;
+
+  /* ===== Gradients ===== */
+  --gradient-brand: linear-gradient(135deg, var(--color-accent), var(--color-accent-warm));
+  --gradient-brand-warm: linear-gradient(135deg, var(--color-accent), var(--color-accent-gold));
+  --gradient-line: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+
+  /* ===== Spacing · 8-Grid scale ===== */
+  --space-0: 0;
+  --space-h: 4px;      /* half step */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-9: 72px;
+  --space-10: 80px;
+  --space-11: 88px;
+  --space-12: 96px;
+  --space-14: 112px;
+  --space-15: 120px;
+  --space-16: 128px;
+  --space-18: 144px;
+  --space-20: 160px;
+  --space-22: 176px;
+  --space-24: 192px;
+  --space-25: 200px;
+
+  /* ===== Layout · Containers & sections ===== */
+  --container-px: var(--space-6);          /* 48px */
+  --container-px-mobile: var(--space-3);   /* 24px */
+  --section-py: var(--space-18);           /* 144px */
+  --section-py-mobile: var(--space-10);    /* 80px */
+  --content-max: 1440px;
+
+  /* ===== Typography · Families ===== */
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  /* ===== Typography · Fixed sizes ===== */
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+
+  /* ===== Typography · Display (fluid) ===== */
+  --display-xs: clamp(28px, 3.4vw, 44px);
+  --display-sm: clamp(36px, 5vw, 72px);
+  --display-md: clamp(42px, 6.5vw, 96px);
+  --display-lg: clamp(48px, 9vw, 140px);
+  --display-xl: clamp(52px, 11vw, 180px);
+
+  /* ===== Typography · Weights ===== */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ===== Typography · Leading ===== */
+  --leading-hero: 0.92;
+  --leading-none: 1;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.7;
+
+  /* ===== Typography · Tracking ===== */
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.025em;
+  --tracking-snug: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-mega: 0.15em;
+
+  /* ===== Radii ===== */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 100px;
+  --radius-full: 50%;
+
+  /* ===== Shadows ===== */
+  --shadow-card: 0 24px 64px rgba(0, 0, 0, 0.15);
+  --shadow-mark: 0 48px 96px rgba(250, 62, 51, 0.18);
+
+  /* ===== Motion · Easing ===== */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-smooth: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* ===== Motion · Duration ===== */
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.5s;
+  --duration-slower: 0.8s;
+  --duration-slowest: 1.2s;
+
+  /* ===== Z-index ===== */
+  --z-base: 0;
+  --z-content: 1;
+  --z-floating: 50;
+  --z-nav: 100;
+  --z-cursor: 9999;
+  --z-loader: 10000;
+}
