@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Styleguide — Design System · Patricio Bustamante</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Design System · Atomic Design -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/atoms.css">
+<link rel="stylesheet" href="css/molecules.css">
+<link rel="stylesheet" href="css/organisms.css">
+<link rel="stylesheet" href="css/layout.css">
+
+<style>
+  /* Estilos exclusivos del styleguide (no forman parte del sistema) */
+  body { cursor: auto; }
+  .sg-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--container-px);
+  }
+  .sg-head { margin-bottom: var(--space-12); }
+  .sg-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+  .sg-title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-light);
+    font-size: var(--display-md);
+    letter-spacing: var(--tracking-tightest);
+    line-height: 1;
+  }
+  .sg-lead {
+    margin-top: var(--space-3);
+    max-width: 560px;
+    color: var(--color-ink-soft);
+    line-height: var(--leading-relaxed);
+  }
+  .sg-section {
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .sg-section-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-ink-mute);
+    margin-bottom: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .sg-section-title::before {
+    content: '';
+    width: var(--space-4);
+    height: 1px;
+    background: var(--color-accent);
+  }
+  .sg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-3);
+  }
+  .sg-swatch {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .sg-swatch-color { height: var(--space-10); }
+  .sg-swatch-meta {
+    padding: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: 1.5;
+  }
+  .sg-swatch-meta strong { display: block; font-weight: var(--weight-medium); }
+  .sg-swatch-meta span { color: var(--color-ink-mute); }
+  .sg-scale-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-ink-soft);
+  }
+  .sg-scale-bar {
+    height: var(--space-2);
+    background: var(--gradient-brand);
+    border-radius: var(--radius-xs);
+  }
+  .sg-scale-label { width: var(--space-12); flex-shrink: 0; }
+  .sg-type-row { margin-bottom: var(--space-4); }
+  .sg-type-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-ink-mute);
+    margin-bottom: var(--space-1);
+  }
+  .sg-panel {
+    padding: var(--space-5);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+  .sg-panel.dark {
+    background: var(--color-bg-inverted);
+  }
+  .sg-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+  .sg-note {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: var(--color-ink-mute);
+    margin-top: var(--space-2);
+  }
+  .sg-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    margin-bottom: var(--space-6);
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#sg-main">Saltar al contenido</a>
+
+<main id="sg-main" class="sg-wrap">
+  <a href="index.html" class="sg-back">&larr; Volver al sitio</a>
+
+  <header class="sg-head">
+    <p class="sg-kicker">Design System</p>
+    <h1 class="sg-title">Styleguide</h1>
+    <p class="sg-lead">Página viva del sistema de diseño. Construido con Atomic Design, tokens y grilla de 8px. Cada elemento usa el mismo CSS de producción — ver <code>DESIGN-SYSTEM.md</code>.</p>
+  </header>
+
+  <!-- COLOR -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Tokens · Color</h2>
+    <div class="sg-grid">
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#f4f1ec"></div><div class="sg-swatch-meta"><strong>bg</strong><span>#f4f1ec</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#1a1a18"></div><div class="sg-swatch-meta"><strong>bg-inverted / ink</strong><span>#1a1a18</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#4a4a47"></div><div class="sg-swatch-meta"><strong>ink-soft</strong><span>#4a4a47</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#6a6a66"></div><div class="sg-swatch-meta"><strong>ink-mute</strong><span>#6a6a66 · AA</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#fa3e33"></div><div class="sg-swatch-meta"><strong>accent</strong><span>#fa3e33</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#f87a38"></div><div class="sg-swatch-meta"><strong>accent-warm</strong><span>#f87a38</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#fdb85b"></div><div class="sg-swatch-meta"><strong>accent-gold</strong><span>#fdb85b</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:linear-gradient(135deg,#fa3e33,#f87a38)"></div><div class="sg-swatch-meta"><strong>gradient-brand</strong><span>135°</span></div></div>
+    </div>
+  </section>
+
+  <!-- 8PX GRID -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">8px Grid System · Escala de espaciado</h2>
+    <div id="sg-scale"></div>
+    <p class="sg-note">Cada barra = un token <code>--space-*</code>. Todo múltiplo de 8px (medio paso 4px).</p>
+  </section>
+
+  <!-- TIPOGRAFÍA -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Tokens · Tipografía</h2>
+    <div class="sg-type-row">
+      <p class="sg-type-meta">Display · Fraunces — display-lg</p>
+      <p style="font-family:var(--font-display);font-weight:300;font-size:var(--display-lg);line-height:1;letter-spacing:var(--tracking-tightest)">Diseño con <em style="font-style:italic;background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">propósito</em></p>
+    </div>
+    <div class="sg-type-row">
+      <p class="sg-type-meta">Sans · Geist — text-base</p>
+      <p style="font-family:var(--font-sans);font-size:var(--text-base);color:var(--color-ink-soft);max-width:560px;line-height:var(--leading-relaxed)">Texto de cuerpo en Geist. Legible, neutral y técnico, para párrafos e interfaz.</p>
+    </div>
+    <div class="sg-type-row">
+      <p class="sg-type-meta">Mono · Geist Mono — text-sm</p>
+      <p style="font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-ink-mute)">Etiquetas · Datos · Eyebrows</p>
+    </div>
+  </section>
+
+  <!-- ATOMS -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Átomos</h2>
+    <div class="sg-row">
+      <span class="project-tag">Tag</span>
+      <span class="project-tag">Móvil</span>
+      <span class="status-dot" title="status-dot"></span>
+      <span class="marquee-dot" title="marquee-dot"></span>
+      <span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M3 13L13 3M13 3H5M13 3V11"/></svg></span>
+      <button type="button" class="cursor-toggle"><span aria-hidden="true">Toggle</span> <span class="cursor-toggle-state">Activado</span></button>
+      <span class="section-label">01 — Label</span>
+    </div>
+    <div class="sg-panel dark" style="margin-top:var(--space-3)">
+      <span class="skill-pill">Skill pill</span>
+      <span class="skill-pill">Figma</span>
+      <span class="skill-pill">Prototipado</span>
+    </div>
+  </section>
+
+  <!-- MOLECULES -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Moléculas</h2>
+
+    <p class="sg-type-meta">section-header</p>
+    <div class="section-header" style="margin-bottom:var(--space-6)">
+      <span class="section-label">01 — Selected Work</span>
+      <span class="section-title">Proyectos<br><em>recientes</em></span>
+    </div>
+
+    <p class="sg-type-meta">project (fila — hover para ver interacción)</p>
+    <div class="project-list" style="margin-bottom:var(--space-6)">
+      <a href="#sg-main" class="project" style="grid-template-columns:var(--space-8) 1.2fr 1fr var(--space-22) var(--space-7)">
+        <span class="project-num" aria-hidden="true">001</span>
+        <span class="project-info">
+          <span class="project-title">Orbita Finance</span>
+          <span class="project-subtitle">Fintech · 2026</span>
+        </span>
+        <span class="project-desc">Rediseño de banca digital con sistema de diseño propio.</span>
+        <span class="project-tags">
+          <span class="project-tag">Fintech</span>
+          <span class="project-tag">Móvil</span>
+        </span>
+        <span class="project-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M3 13L13 3M13 3H5M13 3V11"/></svg></span>
+      </a>
+    </div>
+
+    <p class="sg-type-meta">stat · timeline-item (sobre fondo oscuro)</p>
+    <div class="sg-panel dark" style="display:block">
+      <div class="stats-grid" style="border:0;padding:0;margin-bottom:var(--space-6)">
+        <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Años</div></div>
+        <div class="stat"><div class="stat-number">60+</div><div class="stat-label">Proyectos</div></div>
+        <div class="stat"><div class="stat-number">14</div><div class="stat-label">Clientes</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2022 — 2024</div>
+          <div class="timeline-info">
+            <div class="timeline-company">2Brains</div>
+            <div class="timeline-role">Senior Product Designer</div>
+          </div>
+          <div class="timeline-location">Santiago, CL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANISMS -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Organismos</h2>
+    <p class="sg-note">El header (<code>&lt;site-header&gt;</code>) y el footer (<code>&lt;site-footer&gt;</code>) son Web Components transversales. El hero, la cinta marquee, la sección about y contact son organismos completos — vélos en contexto en <a href="index.html" style="color:var(--color-accent)">index.html</a>, <a href="pages/work.html" style="color:var(--color-accent)">work</a> y <a href="pages/about.html" style="color:var(--color-accent)">about</a>.</p>
+  </section>
+
+</main>
+
+<script>
+  // Render de la escala 8px desde los tokens reales
+  (function () {
+    const steps = [
+      ['space-h', 4], ['space-1', 8], ['space-2', 16], ['space-3', 24],
+      ['space-4', 32], ['space-5', 40], ['space-6', 48], ['space-8', 64],
+      ['space-10', 80], ['space-12', 96], ['space-15', 120], ['space-20', 160]
+    ];
+    const host = document.getElementById('sg-scale');
+    host.innerHTML = steps.map(([name, px]) => `
+      <div class="sg-scale-row">
+        <span class="sg-scale-label">--${name}</span>
+        <span class="sg-scale-bar" style="width:${px}px"></span>
+        <span>${px}px · ${px / 8 === Math.round(px / 8) ? px / 8 + '×8' : px / 8 + '×8'}</span>
+      </div>`).join('');
+  })();
+</script>
+</body>
+</html>

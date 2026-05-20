@@ -1,0 +1,188 @@
+/* ============================================
+   ATOMS · Atomic Design — nivel 1
+   ----------------------------------------------
+   Las piezas indivisibles del sistema: dots,
+   pills, tags, labels, iconos-botón, toggles.
+   No conocen su contexto; se reutilizan en
+   molecules y organisms. Todo el espaciado usa
+   la escala de 8px (tokens.css).
+   ============================================ */
+
+/* ===== Dot · indicador circular ===== */
+.status-dot {
+  width: var(--space-1);
+  height: var(--space-1);
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+.marquee-dot {
+  width: var(--space-1);
+  height: var(--space-1);
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* ===== Cursor · puntero personalizado ===== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--space-1);
+  height: var(--space-1);
+  background: var(--color-ink);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition:
+    width var(--duration-slow) var(--ease-out-expo),
+    height var(--duration-slow) var(--ease-out-expo),
+    background var(--duration-base) ease,
+    opacity var(--duration-base) ease;
+  mix-blend-mode: difference;
+}
+.cursor-dot.hover {
+  width: var(--space-7);
+  height: var(--space-7);
+  background: var(--color-accent);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+}
+.cursor-dot.text {
+  width: 2px;                 /* hairline — excepción de grilla */
+  height: var(--space-4);
+  border-radius: var(--radius-xs);
+  background: var(--color-accent);
+  mix-blend-mode: normal;
+}
+
+/* ===== Pill · etiqueta de habilidad (sobre fondo oscuro) ===== */
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-line-light);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-on-dark-soft);
+  letter-spacing: var(--tracking-wide);
+  cursor: default;
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.45s var(--ease-out-back),
+    background 0.35s ease;
+}
+.skill-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px) scale(1.04); /* micro-movimiento de animación */
+  background: rgba(250, 62, 51, 0.06);
+}
+
+/* ===== Tag · categoría de proyecto (sobre fondo claro) ===== */
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  padding: var(--space-h) var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-soft);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  transition:
+    border-color 0.4s ease,
+    color 0.4s ease,
+    transform 0.5s var(--ease-out-back);
+}
+
+/* ===== Label · eyebrow de sección ===== */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-ink-mute);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: var(--space-4);
+  height: 1px;
+  background: var(--color-ink-mute);
+}
+
+/* ===== Icon button · flecha circular (proyecto / contacto) ===== */
+.project-arrow,
+.contact-arrow {
+  width: var(--space-6);
+  height: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.project-arrow {
+  margin-left: auto;
+  transition:
+    background 0.5s var(--ease-out-expo),
+    border-color 0.5s var(--ease-out-expo),
+    color 0.5s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-back);
+}
+.contact-arrow {
+  transition: all var(--duration-slow) var(--ease-out-expo);
+}
+.project-arrow svg,
+.contact-arrow svg {
+  width: var(--space-2);
+  height: var(--space-2);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+/* ===== Brand mark · isotipo en nav y footer ===== */
+.nav-logo-mark {
+  height: var(--space-4);
+  width: auto;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+/* ===== Toggle · botón cursor personalizado (footer) ===== */
+.cursor-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--space-4);         /* 32px */
+  padding: var(--space-h) var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-base) ease,
+    color var(--duration-base) ease;
+}
+.cursor-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.cursor-toggle-state {
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+.cursor-toggle[aria-pressed="false"] .cursor-toggle-state {
+  color: var(--color-ink-mute);
+}

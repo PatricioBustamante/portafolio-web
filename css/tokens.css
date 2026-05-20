@@ -1,10 +1,29 @@
 /* ============================================
-   DESIGN TOKENS
-   Foundational system for the portfolio.
+   DESIGN TOKENS · Capa base del Design System
+   ----------------------------------------------
+   Atomic Design — nivel 0 (tokens).
+   Estos tokens alimentan a: atoms → molecules →
+   organisms → layout. Ningún valor "mágico"
+   debería existir fuera de aquí salvo las
+   excepciones documentadas más abajo.
 
-   Spacing follows an 8-grid scale.
-   Naming: --space-{n} where each unit = n × 8px.
-   Half step --space-h = 4px (0.5 × 8).
+   8PX GRID SYSTEM
+   Todo el espaciado se construye sobre una grilla
+   de 8px. Escala: --space-{n} = n × 8px.
+   Medio paso: --space-h = 4px (0.5 × 8) para
+   ajustes finos (gaps de pills, paddings de chips).
+
+   EXCEPCIONES JUSTIFICADAS a la grilla de 8px
+   (no son espaciado, por eso viven fuera de la escala):
+     · Tipografía: escala modular propia (10–180px),
+       no se alinea a 8px porque sigue ritmo tipográfico.
+     · Bordes/outlines: 1px y 2px (hairlines).
+     · Touch targets: 44px (WCAG 2.5.5 AAA) — accesibilidad
+       manda sobre la grilla.
+     · Geometría de iconos: las barras del hamburguesa y
+       posiciones internas de SVG son medidas de dibujo,
+       no de layout.
+     · Radios: --radius-* son curvaturas, no espaciado.
    ============================================ */
 
 :root {

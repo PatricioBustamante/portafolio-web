@@ -1,6 +1,12 @@
 /* ============================================
-   BASE
-   Reset, root elements and shared utilities.
+   BASE · Reset, globales, accesibilidad y utilidades
+   ----------------------------------------------
+   Atomic Design — capa transversal.
+   Carga después de tokens.css y antes de
+   atoms → molecules → organisms → layout.
+   Contiene: reset, foco accesible, skip-link,
+   .sr-only, utilidades .reveal y keyframes
+   compartidos (fadeUp, pulse).
    ============================================ */
 
 /* ===== Reset ===== */
@@ -46,7 +52,7 @@ img { display: block; max-width: 100%; }
 :focus { outline: none; }
 :focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+  outline-offset: var(--space-h); /* 4px — medio paso de la grilla */
   border-radius: var(--radius-xs);
 }
 .nav-links a:focus-visible,
