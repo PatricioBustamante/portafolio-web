@@ -393,6 +393,175 @@
   border-top: 1px solid var(--color-line);
 }
 
+/* ===== Project detail · plantilla de detalle (proyecto.html) ===== */
+.project-cover-section {
+  padding: var(--space-6) var(--container-px) 0;
+}
+.project-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  background: var(--color-bg-inverted);
+}
+.project-cover-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--weight-light);
+  font-size: var(--display-sm);
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: var(--tracking-snug);
+  text-align: center;
+  padding: 0 var(--space-4);
+}
+/* Cubierta clara (preview-3) necesita texto oscuro */
+.project-cover.preview-3 .project-cover-title { color: #2a1f10; }
+
+.project-intro {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-10);
+  padding: var(--section-py) var(--container-px) var(--space-12);
+  align-items: start;
+}
+.project-summary {
+  font-family: var(--font-display);
+  font-weight: var(--weight-light);
+  font-size: var(--display-xs);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-ink);
+}
+.project-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+.project-meta-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mega);
+  color: var(--color-ink-mute);
+  margin-bottom: var(--space-1);
+}
+.project-meta-value {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-ink-soft);
+}
+/* Las pills de servicios reutilizan .skill-pill (átomo) pero sobre
+   fondo claro: ajustamos color heredado del contexto oscuro. */
+.project-meta-value .skills-list { gap: var(--space-h); margin-top: var(--space-1); }
+.project-meta-value .skill-pill {
+  color: var(--color-ink-soft);
+  border-color: var(--color-line);
+}
+
+.project-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  padding: 0 var(--container-px) var(--section-py);
+}
+.overview-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+.overview-text {
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--color-ink-soft);
+}
+
+/* Resultados sobre fondo oscuro */
+.project-outcome {
+  background: var(--color-bg-inverted);
+  color: var(--color-bg);
+  padding: var(--section-py) var(--container-px);
+}
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.outcome-card {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-line-light);
+}
+.outcome-metric {
+  font-family: var(--font-display);
+  font-weight: var(--weight-light);
+  font-size: var(--display-sm);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tightest);
+  background: var(--gradient-brand-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-2);
+}
+.outcome-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ink-on-dark-mute);
+}
+
+/* Siguiente proyecto · banda final clicable */
+.project-next {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-12) var(--container-px);
+  border-top: 1px solid var(--color-line);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: gap var(--duration-slow) var(--ease-out-expo);
+}
+.project-next:hover { gap: var(--space-5); }
+.project-next-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mega);
+  color: var(--color-ink-mute);
+}
+.project-next-title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-light);
+  font-size: var(--display-xs);
+  letter-spacing: var(--tracking-tight);
+}
+.project-next-arrow {
+  width: var(--space-6);
+  height: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: all var(--duration-slow) var(--ease-out-expo);
+}
+.project-next-arrow svg { width: var(--space-2); height: var(--space-2); }
+.project-next:hover .project-next-arrow {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-bg);
+  transform: rotate(-45deg) scale(1.1);
+}
+
 /* ===== Footer · pie de página ===== */
 footer {
   padding: var(--space-5) var(--container-px);

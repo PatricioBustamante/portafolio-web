@@ -218,6 +218,23 @@ section {
     gap: var(--space-2);
     text-align: center;
   }
+
+  /* Detalle de proyecto */
+  .project-cover-section { padding: var(--space-4) var(--container-px-mobile) 0; }
+  .project-cover { aspect-ratio: 4 / 3; }
+  .project-intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: var(--section-py-mobile) var(--container-px-mobile) var(--space-8);
+  }
+  .project-overview {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: 0 var(--container-px-mobile) var(--section-py-mobile);
+  }
+  .project-outcome { padding: var(--section-py-mobile) var(--container-px-mobile); }
+  .outcome-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .project-next { padding: var(--space-8) var(--container-px-mobile); }
 }
 
 /* ----- ≤ 480px · móvil pequeño ----- */
@@ -230,4 +247,5 @@ section {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
+  .project-meta-grid { grid-template-columns: 1fr; }
 }

@@ -113,6 +113,40 @@ body.menu-open .nav-toggle .nav-toggle-bar:nth-child(1) { transform: translate(-
 body.menu-open .nav-toggle .nav-toggle-bar:nth-child(2) { transform: translate(-50%, -50%) rotate(0deg); }
 body.menu-open .nav-toggle .nav-toggle-bar:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg); }
 
+/* ===== Breadcrumb · migas de navegación (páginas internas) ===== */
+.breadcrumb {
+  margin-bottom: var(--space-5);
+  opacity: 0;
+  transform: translateY(var(--space-1));
+  animation: fadeUp 0.7s var(--ease-out-expo) 0.15s forwards;
+}
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.breadcrumb-list a {
+  color: var(--color-ink-mute);
+  transition: color var(--duration-base) ease;
+}
+.breadcrumb-list a:hover { color: var(--color-accent); }
+.breadcrumb-sep {
+  color: var(--color-ink-mute);
+  opacity: 0.5;
+}
+.breadcrumb-current { color: var(--color-ink); }
+
 /* ===== Section header · label + título ===== */
 .section-header {
   display: flex;
