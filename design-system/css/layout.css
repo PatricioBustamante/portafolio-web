@@ -83,15 +83,22 @@ section {
     z-index: calc(var(--z-nav) + 1);
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     transform: translateY(calc(var(--space-1) * -1));
     transition:
       opacity var(--duration-slow) var(--ease-out-expo),
-      transform var(--duration-slow) var(--ease-out-expo);
+      transform var(--duration-slow) var(--ease-out-expo),
+      visibility 0s var(--duration-slow);
   }
   body.menu-open .nav-links {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
     transform: translateY(0);
+    transition:
+      opacity var(--duration-slow) var(--ease-out-expo),
+      transform var(--duration-slow) var(--ease-out-expo),
+      visibility 0s;
   }
   .nav-links a {
     position: relative;

@@ -690,6 +690,26 @@ function setMenuOpen(open) {
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   }
+  if (open) {
+    const firstLink = navLinksEl && navLinksEl.querySelector('a');
+    if (firstLink) firstLink.focus();
+  } else {
+    if (navToggle) navToggle.focus();
+  }
+}
+
+function trapMenuFocus(e) {
+  if (!document.body.classList.contains('menu-open') || e.key !== 'Tab') return;
+  const focusables = [navToggle, ...navLinksEl.querySelectorAll('a')].filter(Boolean);
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
 }
 
 if (navToggle && navLinksEl) {
@@ -698,6 +718,7 @@ if (navToggle && navLinksEl) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenuOpen(false);
   });
+  document.addEventListener('keydown', trapMenuFocus);
   window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) setMenuOpen(false); });
 }
 
