@@ -27,6 +27,7 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  font-size: var(--text-base);
   font-weight: var(--weight-regular);
   overflow-x: clip;
   width: 100%;

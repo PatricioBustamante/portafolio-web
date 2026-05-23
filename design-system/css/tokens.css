@@ -104,16 +104,16 @@
   --font-sans: 'Geist', sans-serif;
   --font-mono: 'Geist Mono', monospace;
 
-  /* ===== Typography · Fixed sizes ===== */
-  --text-2xs: 10px;
-  --text-xs: 11px;
-  --text-sm: 12px;
-  --text-md: 14px;
-  --text-base: 16px;
-  --text-lg: 18px;
-  --text-xl: 24px;
-  --text-2xl: 32px;
-  --text-3xl: 40px;
+  /* ===== Typography · Fixed sizes (base = 1.125rem / 18px) ===== */
+  --text-2xs: 0.703rem;   /* ~11px */
+  --text-xs: 0.773rem;    /* ~12px */
+  --text-sm: 0.844rem;    /* ~13.5px */
+  --text-md: 0.984rem;    /* ~16px */
+  --text-base: 1.125rem;  /* 18px */
+  --text-lg: 1.266rem;    /* ~20px */
+  --text-xl: 1.688rem;    /* 27px */
+  --text-2xl: 2.25rem;    /* 36px */
+  --text-3xl: 2.813rem;   /* 45px */
 
   /* ===== Typography · Display (fluid) ===== */
   --display-xs: clamp(28px, 3.4vw, 44px);
