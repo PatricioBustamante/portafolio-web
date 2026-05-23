@@ -48,7 +48,6 @@ class SiteHeader extends HTMLElement {
 if (!customElements.get('site-header')) {
   customElements.define('site-header', SiteHeader);
 }
-
 /* ============================================
    <site-footer>  · custom element
    Renders the footer in light DOM. Auto-resolves
@@ -79,7 +78,6 @@ class SiteFooter extends HTMLElement {
 if (!customElements.get('site-footer')) {
   customElements.define('site-footer', SiteFooter);
 }
-
 /* ============================================
    PROJECTS DATA · fuente única de los proyectos
    ----------------------------------------------
@@ -93,6 +91,7 @@ if (!customElements.get('site-footer')) {
 window.PROJECTS = {
   'orbita-finance': {
     num: '001', preview: 1,
+    company: 'Orbita', initial: 'Or',
     title: 'Orbita Finance', category: 'Fintech', year: '2026',
     role: 'Lead Product Designer', client: 'Orbita (startup fintech)',
     services: ['Sistema de Diseño', 'Diseño móvil', 'Investigación', 'Prototipado'],
@@ -108,6 +107,7 @@ window.PROJECTS = {
   },
   'nimbus-studio': {
     num: '002', preview: 2,
+    company: 'Nimbus', initial: 'Nb',
     title: 'Nimbus Studio', category: 'SaaS', year: '2025',
     role: 'Senior Product Designer', client: 'Nimbus',
     services: ['Estrategia de producto', 'App Web', 'Librería de componentes'],
@@ -123,6 +123,7 @@ window.PROJECTS = {
   },
   'mesa-co': {
     num: '003', preview: 3,
+    company: 'Mesa & Co.', initial: 'M&',
     title: 'Mesa & Co.', category: 'E-commerce', year: '2025',
     role: 'Product & Brand Designer', client: 'Mesa & Co.',
     services: ['Branding', 'Dirección de arte', 'E-commerce'],
@@ -138,6 +139,7 @@ window.PROJECTS = {
   },
   'hojaverde': {
     num: '004', preview: 4,
+    company: 'Hojaverde', initial: 'Hv',
     title: 'Hojaverde', category: 'Bienestar', year: '2024',
     role: 'Product Designer', client: 'Hojaverde',
     services: ['Investigación', 'Prototipado', 'Handoff'],
@@ -153,6 +155,7 @@ window.PROJECTS = {
   },
   'atlas-coffee': {
     num: '005', preview: 5,
+    company: 'Atlas Coffee', initial: 'Ac',
     title: 'Atlas Coffee', category: 'Web Editorial', year: '2024',
     role: 'Product Designer', client: 'Atlas Coffee Roasters',
     services: ['Diseño editorial', 'Microinteracciones', 'Suscripción'],
@@ -168,6 +171,7 @@ window.PROJECTS = {
   },
   'vertice-health': {
     num: '006', preview: 1,
+    company: 'Vértice', initial: 'Vt',
     title: 'Vértice Health', category: 'Healthtech', year: '2024',
     role: 'Senior UX/UI Designer', client: 'Vértice (clínicas privadas)',
     services: ['Flujos críticos', 'Accesibilidad', 'Handoff'],
@@ -183,6 +187,7 @@ window.PROJECTS = {
   },
   'pulpo-logistics': {
     num: '007', preview: 2,
+    company: 'Pulpo', initial: 'Pl',
     title: 'Pulpo Logistics', category: 'Logística', year: '2023',
     role: 'Product Designer', client: 'Pulpo',
     services: ['Dashboard', 'Data Viz', 'B2B'],
@@ -198,6 +203,7 @@ window.PROJECTS = {
   },
   'marea-editorial': {
     num: '008', preview: 3,
+    company: 'Marea', initial: 'Me',
     title: 'Marea Editorial', category: 'Medios', year: '2023',
     role: 'Product Designer', client: 'Marea (medio independiente)',
     services: ['Sistema modular', 'Suscripciones', 'CMS'],
@@ -213,6 +219,7 @@ window.PROJECTS = {
   },
   'norte-sur-travel': {
     num: '009', preview: 4,
+    company: 'Norte Sur', initial: 'NS',
     title: 'Norte Sur Travel', category: 'Viajes', year: '2023',
     role: 'Product Designer', client: 'Norte Sur',
     services: ['Onboarding', 'Motor de itinerarios', 'Reserva'],
@@ -228,6 +235,7 @@ window.PROJECTS = {
   },
   'faro-academico': {
     num: '010', preview: 5,
+    company: 'Faro', initial: 'Fa',
     title: 'Faro Académico', category: 'EdTech', year: '2023',
     role: 'Product Designer', client: 'Faro (universidades LATAM)',
     services: ['Sistema de componentes', 'Dark mode', 'Accesibilidad'],
@@ -245,7 +253,64 @@ window.PROJECTS = {
 
 /* Lista ordenada de slugs para navegación "siguiente proyecto". */
 window.PROJECT_ORDER = Object.keys(window.PROJECTS);
+/* ============================================
+   <project-card>  · custom element
+   Renders a project row in light DOM so existing
+   CSS selectors and main.js queries keep working.
 
+   Attributes:
+     slug   key from window.PROJECTS
+            → renders the full project row HTML
+   ============================================ */
+
+class ProjectCard extends HTMLElement {
+  connectedCallback() {
+    const slug = this.getAttribute('slug');
+    const p = window.PROJECTS && window.PROJECTS[slug];
+    if (!p) return;
+
+    const inSubpage = window.location.pathname.includes('/pages/');
+    const href = inSubpage
+      ? `proyecto.html?slug=${slug}`
+      : `pages/proyecto.html?slug=${slug}`;
+
+    const esc = s => String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+
+    const tagsHtml = (p.tags || [])
+      .map(t => `<span class="project-tag">${esc(t)}</span>`)
+      .join('');
+
+    const initial = p.initial || (p.company ? p.company[0] : '');
+
+    this.innerHTML = `
+<a href="${href}" class="project" data-preview="${esc(p.preview)}" aria-label="Proyecto ${esc(p.num)}: ${esc(p.title)}, ${esc(p.category)} ${esc(p.year)}">
+  <div class="project-num" aria-hidden="true">${esc(p.num)}</div>
+  <div class="project-info">
+    <div class="company-badge">
+      <span class="company-logo-mark" aria-hidden="true">${esc(initial)}</span>
+      <span class="company-badge-name">${esc(p.company || '')}</span>
+    </div>
+    <div class="project-title">${esc(p.title)}</div>
+    <div class="project-subtitle">${esc(p.category)} &middot; ${esc(p.year)}</div>
+  </div>
+  <div class="project-desc">${esc(p.summary)}</div>
+  <div class="project-tags">${tagsHtml}</div>
+  <span class="project-arrow magnetic" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
+      <path d="M3 13L13 3M13 3H5M13 3V11"/>
+    </svg>
+  </span>
+</a>`;
+  }
+}
+
+if (!customElements.get('project-card')) {
+  customElements.define('project-card', ProjectCard);
+}
 /* ============================================
    PROJECT DETAIL · rellena proyecto.html
    ----------------------------------------------
@@ -284,6 +349,10 @@ window.PROJECT_ORDER = Object.keys(window.PROJECTS);
   set('summary', project.summary);
   set('challenge', project.challenge);
   set('solution', project.solution);
+
+  // Company badge
+  set('company', project.company || '');
+  set('company-initial', project.initial || (project.company ? project.company[0] : ''));
 
   // Document title + meta
   document.title = `${project.title} — Patricio Bustamante`;
@@ -326,7 +395,6 @@ window.PROJECT_ORDER = Object.keys(window.PROJECTS);
     if (nextTitle) nextTitle.textContent = nextProject.title;
   }
 })();
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(pointer: fine)');
 

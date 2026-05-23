@@ -11,6 +11,7 @@
 window.PROJECTS = {
   'orbita-finance': {
     num: '001', preview: 1,
+    company: 'Orbita', initial: 'Or',
     title: 'Orbita Finance', category: 'Fintech', year: '2026',
     role: 'Lead Product Designer', client: 'Orbita (startup fintech)',
     services: ['Sistema de Diseño', 'Diseño móvil', 'Investigación', 'Prototipado'],
@@ -26,6 +27,7 @@ window.PROJECTS = {
   },
   'nimbus-studio': {
     num: '002', preview: 2,
+    company: 'Nimbus', initial: 'Nb',
     title: 'Nimbus Studio', category: 'SaaS', year: '2025',
     role: 'Senior Product Designer', client: 'Nimbus',
     services: ['Estrategia de producto', 'App Web', 'Librería de componentes'],
@@ -41,6 +43,7 @@ window.PROJECTS = {
   },
   'mesa-co': {
     num: '003', preview: 3,
+    company: 'Mesa & Co.', initial: 'M&',
     title: 'Mesa & Co.', category: 'E-commerce', year: '2025',
     role: 'Product & Brand Designer', client: 'Mesa & Co.',
     services: ['Branding', 'Dirección de arte', 'E-commerce'],
@@ -56,6 +59,7 @@ window.PROJECTS = {
   },
   'hojaverde': {
     num: '004', preview: 4,
+    company: 'Hojaverde', initial: 'Hv',
     title: 'Hojaverde', category: 'Bienestar', year: '2024',
     role: 'Product Designer', client: 'Hojaverde',
     services: ['Investigación', 'Prototipado', 'Handoff'],
@@ -71,6 +75,7 @@ window.PROJECTS = {
   },
   'atlas-coffee': {
     num: '005', preview: 5,
+    company: 'Atlas Coffee', initial: 'Ac',
     title: 'Atlas Coffee', category: 'Web Editorial', year: '2024',
     role: 'Product Designer', client: 'Atlas Coffee Roasters',
     services: ['Diseño editorial', 'Microinteracciones', 'Suscripción'],
@@ -86,6 +91,7 @@ window.PROJECTS = {
   },
   'vertice-health': {
     num: '006', preview: 1,
+    company: 'Vértice', initial: 'Vt',
     title: 'Vértice Health', category: 'Healthtech', year: '2024',
     role: 'Senior UX/UI Designer', client: 'Vértice (clínicas privadas)',
     services: ['Flujos críticos', 'Accesibilidad', 'Handoff'],
@@ -101,6 +107,7 @@ window.PROJECTS = {
   },
   'pulpo-logistics': {
     num: '007', preview: 2,
+    company: 'Pulpo', initial: 'Pl',
     title: 'Pulpo Logistics', category: 'Logística', year: '2023',
     role: 'Product Designer', client: 'Pulpo',
     services: ['Dashboard', 'Data Viz', 'B2B'],
@@ -116,6 +123,7 @@ window.PROJECTS = {
   },
   'marea-editorial': {
     num: '008', preview: 3,
+    company: 'Marea', initial: 'Me',
     title: 'Marea Editorial', category: 'Medios', year: '2023',
     role: 'Product Designer', client: 'Marea (medio independiente)',
     services: ['Sistema modular', 'Suscripciones', 'CMS'],
@@ -131,6 +139,7 @@ window.PROJECTS = {
   },
   'norte-sur-travel': {
     num: '009', preview: 4,
+    company: 'Norte Sur', initial: 'NS',
     title: 'Norte Sur Travel', category: 'Viajes', year: '2023',
     role: 'Product Designer', client: 'Norte Sur',
     services: ['Onboarding', 'Motor de itinerarios', 'Reserva'],
@@ -146,6 +155,7 @@ window.PROJECTS = {
   },
   'faro-academico': {
     num: '010', preview: 5,
+    company: 'Faro', initial: 'Fa',
     title: 'Faro Académico', category: 'EdTech', year: '2023',
     role: 'Product Designer', client: 'Faro (universidades LATAM)',
     services: ['Sistema de componentes', 'Dark mode', 'Accesibilidad'],

@@ -224,7 +224,11 @@ body.menu-open .nav-toggle .nav-toggle-bar:nth-child(3) { transform: translate(-
     padding 0.6s var(--ease-out-expo),
     background 0.4s ease;
 }
-.project:last-child { border-bottom: 1px solid var(--color-line); }
+/* Borde inferior: directo (legacy) o último project-card */
+.project-list > .project:last-child,
+project-card:last-child > .project { border-bottom: 1px solid var(--color-line); }
+/* Reset: evita que :last-child aplique a todos cuando .project está dentro de project-card */
+project-card > .project { border-bottom: none; }
 .project::before {
   content: '';
   position: absolute;
@@ -265,6 +269,65 @@ body.menu-open .nav-toggle .nav-toggle-bar:nth-child(3) { transform: translate(-
   display: flex;
   flex-direction: column;
   gap: var(--space-h);
+}
+
+/* ===== Company badge · monograma + nombre empresa ===== */
+.company-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-h);
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.company-logo-mark {
+  width: calc(var(--space-4) - var(--space-h));  /* 28px */
+  height: calc(var(--space-4) - var(--space-h));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-soft);
+  flex-shrink: 0;
+  letter-spacing: 0;
+  transition:
+    border-color 0.4s ease,
+    color 0.4s ease;
+}
+.company-badge-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-ink-mute);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+.project:hover .company-badge { transform: translateX(var(--space-3)); }
+.project:hover .company-logo-mark {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.project:hover .company-badge-name { color: var(--color-ink-soft); }
+
+/* Variante hero · más grande, para el detalle de proyecto */
+.company-badge--hero {
+  margin-bottom: var(--space-3);
+  opacity: 0;
+  transform: translateY(var(--space-2));
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.1s forwards;
+}
+.company-badge--hero .company-logo-mark {
+  width: calc(var(--space-5) - var(--space-h));  /* 36px */
+  height: calc(var(--space-5) - var(--space-h));
+  font-size: 11px;
+  border-radius: var(--radius-base);
+}
+.company-badge--hero .company-badge-name {
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
 }
 .project-title {
   font-family: var(--font-display);

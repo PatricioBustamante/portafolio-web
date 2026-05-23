@@ -37,6 +37,10 @@
   set('challenge', project.challenge);
   set('solution', project.solution);
 
+  // Company badge
+  set('company', project.company || '');
+  set('company-initial', project.initial || (project.company ? project.company[0] : ''));
+
   // Document title + meta
   document.title = `${project.title} — Patricio Bustamante`;
   const ogTitle = document.querySelector('meta[property="og:title"]');

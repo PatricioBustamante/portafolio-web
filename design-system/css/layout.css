@@ -114,8 +114,8 @@ section {
   /* Hero */
   .hero { padding: 0 var(--container-px-mobile); }
   .hero-mark {
-    width: clamp(200px, 65vw, 320px);
-    right: -14vw;
+    width: clamp(260px, 82vw, 420px);
+    right: -16vw;
     animation-name: heroMarkInMobile;
   }
   .hero-meta-right::before { display: none; }
