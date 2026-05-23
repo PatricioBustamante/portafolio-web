@@ -155,7 +155,7 @@ if (cursorSupported) {
   cursorTick = function(timestamp) {
     const delta = cursorLastTime ? Math.min(timestamp - cursorLastTime, 50) : 16.67;
     cursorLastTime = timestamp;
-    const k = 1 - Math.pow(0.82, delta / 16.67);
+    const k = 1 - Math.pow(0.65, delta / 16.67);
     cursorX += (mouseX - cursorX) * k;
     cursorY += (mouseY - cursorY) * k;
     cursor.style.left = cursorX + 'px';

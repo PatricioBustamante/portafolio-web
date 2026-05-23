@@ -29,33 +29,32 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: var(--space-1);
-  height: var(--space-1);
-  background: var(--color-ink);
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
   border-radius: var(--radius-full);
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
   transition:
-    width var(--duration-slow) var(--ease-out-expo),
-    height var(--duration-slow) var(--ease-out-expo),
-    background var(--duration-base) ease,
-    opacity var(--duration-base) ease;
-  mix-blend-mode: difference;
+    width var(--duration-base) var(--ease-out-expo),
+    height var(--duration-base) var(--ease-out-expo),
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    opacity var(--duration-fast) ease;
 }
 .cursor-dot.hover {
-  width: var(--space-7);
-  height: var(--space-7);
-  background: var(--color-accent);
-  mix-blend-mode: normal;
-  opacity: 0.8;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1.5px solid var(--color-accent);
+  opacity: 0.9;
 }
 .cursor-dot.text {
   width: 2px;                 /* hairline — excepción de grilla */
   height: var(--space-4);
   border-radius: var(--radius-xs);
   background: var(--color-accent);
-  mix-blend-mode: normal;
 }
 
 /* ===== Pill · etiqueta de habilidad (sobre fondo oscuro) ===== */
