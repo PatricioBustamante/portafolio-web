@@ -1,3 +1,85 @@
+/* ============================================
+   <site-header>  · custom element
+   Renders the nav in light DOM so existing CSS
+   selectors and main.js queries keep working.
+
+   Attributes:
+     current   "work" | "about" | (empty for home)
+                 → marks the matching nav link with .is-active
+   ============================================ */
+
+class SiteHeader extends HTMLElement {
+  connectedCallback() {
+    const current = (this.getAttribute('current') || '').toLowerCase();
+    const inSubpage = window.location.pathname.includes('/pages/');
+    const base = inSubpage ? '../' : '';
+    const workHref = inSubpage ? 'work.html' : 'pages/work.html';
+    const aboutHref = inSubpage ? 'about.html' : 'pages/about.html';
+    const isWork = current === 'work' ? ' is-active' : '';
+    const isAbout = current === 'about' ? ' is-active' : '';
+
+    this.innerHTML = `
+<nav class="nav" aria-label="Principal">
+  <a href="${base}index.html" class="nav-logo magnetic" aria-label="Patricio Bustamante — Inicio">
+    <img src="${base}assets/isotipo-personal.svg" alt="" class="nav-logo-mark" width="32" height="34">
+    <span class="nav-logo-text">Patricio Bustamante</span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="${workHref}" class="magnetic${isWork}"${isWork ? ' aria-current="page"' : ''}><span class="nav-num">01</span>Proyectos</a>
+    <a href="${aboutHref}" class="magnetic${isAbout}"${isAbout ? ' aria-current="page"' : ''}><span class="nav-num">02</span>Sobre mí</a>
+    <a href="${base}index.html#contact" class="magnetic"><span class="nav-num">03</span>Contacto</a>
+  </div>
+
+  <p class="nav-status" role="status">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="sr-only">Estado: </span>Disponible
+  </p>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+</nav>`;
+  }
+}
+
+if (!customElements.get('site-header')) {
+  customElements.define('site-header', SiteHeader);
+}
+
+/* ============================================
+   <site-footer>  · custom element
+   Renders the footer in light DOM. Auto-resolves
+   relative paths based on URL depth.
+   ============================================ */
+
+class SiteFooter extends HTMLElement {
+  connectedCallback() {
+    const inSubpage = window.location.pathname.includes('/pages/');
+    const base = inSubpage ? '../' : '';
+    const year = new Date().getFullYear();
+
+    this.innerHTML = `
+<footer role="contentinfo">
+  <a href="${base}index.html" class="footer-logo magnetic" aria-label="Volver al inicio">
+    <img src="${base}assets/isotipo-personal.svg" alt="" class="footer-logo-mark" width="32" height="34">
+  </a>
+  <p>&copy; ${year} — Patricio Bustamante</p>
+  <p class="footer-time" id="localTime" aria-label="Hora local en Chile">--:--:-- CLT</p>
+  <button type="button" class="cursor-toggle" aria-pressed="true" aria-label="Activar o desactivar cursor personalizado">
+    Cursor <span class="cursor-toggle-state" aria-hidden="true">Activado</span>
+  </button>
+  <p>Hecho con cariño &middot; Chile</p>
+</footer>`;
+  }
+}
+
+if (!customElements.get('site-footer')) {
+  customElements.define('site-footer', SiteFooter);
+}
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(pointer: fine)');
 

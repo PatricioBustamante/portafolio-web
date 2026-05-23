@@ -17,7 +17,8 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 
 <!-- Design System · Atomic Design:
      tokens → base → atoms → molecules → organisms → layout -->
@@ -27,6 +28,8 @@
 <link rel="stylesheet" href="../design-system/css/molecules.css">
 <link rel="stylesheet" href="../design-system/css/organisms.css">
 <link rel="stylesheet" href="../design-system/css/layout.css">
+<link rel="preload" href="../assets/isotipo-personal.svg" as="image" type="image/svg+xml">
+<script src="../js/bundle.js" defer></script>
 </head>
 <body>
 
@@ -372,8 +375,5 @@
 <!-- Footer -->
 <site-footer></site-footer>
 
-<script src="../js/components/site-header.js"></script>
-<script src="../js/components/site-footer.js"></script>
-<script src="../js/main.js"></script>
 </body>
 </html>
