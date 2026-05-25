@@ -208,6 +208,35 @@
   color: var(--color-ink);
   font-weight: var(--weight-medium);
 }
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  flex-wrap: wrap;
+}
+.btn--primary {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+.btn--primary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+.btn--secondary {
+  background: transparent;
+  color: var(--color-ink);
+}
+.btn-icon {
+  width: var(--space-2);
+  height: var(--space-2);
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-out-back);
+}
+.btn--secondary:hover .btn-icon {
+  transform: translateY(2px);
+}
 
 /* ===== Page hero · cabecera de páginas internas ===== */
 .page-hero {
