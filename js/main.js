@@ -1,3 +1,18 @@
+// ===== Auto-render project lists =====
+(function renderProjectLists() {
+  const projects = window.PROJECTS || {};
+  document.querySelectorAll('[data-projects]').forEach(container => {
+    const filter = container.getAttribute('data-projects');
+    const slugs = Object.keys(projects).filter(slug => {
+      const p = projects[slug];
+      if (!p.visibleProject) return false;
+      if (filter === 'recent') return p.recentProject === true;
+      return true;
+    });
+    container.innerHTML = slugs.map(slug => `<project-card slug="${slug}"></project-card>`).join('');
+  });
+})();
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(pointer: fine)');
 
