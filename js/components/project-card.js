@@ -31,9 +31,15 @@ class ProjectCard extends HTMLElement {
 
     const initial = p.initial || (p.company ? p.company[0] : '');
 
+    const siblings = this.parentElement
+      ? Array.from(this.parentElement.children).filter(el => el.tagName === 'PROJECT-CARD')
+      : [];
+    const listIndex = siblings.indexOf(this) + 1;
+    const num = String(listIndex).padStart(2, '0');
+
     this.innerHTML = `
-<a href="${href}" class="project" data-preview="${esc(p.preview)}" aria-label="Proyecto ${esc(p.num)}: ${esc(p.title)}, ${esc(p.category)} ${esc(p.year)}">
-  <div class="project-num" aria-hidden="true">${esc(p.num)}</div>
+<a href="${href}" class="project" data-preview="${esc(p.preview)}" aria-label="Proyecto ${num}: ${esc(p.title)}, ${esc(p.category)} ${esc(p.year)}">
+  <div class="project-num" aria-hidden="true">${num}</div>
   <div class="project-info">
     <div class="company-badge">
       <span class="company-logo-mark" aria-hidden="true">${esc(initial)}</span>
