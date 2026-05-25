@@ -135,58 +135,12 @@ document.querySelectorAll('.cursor-toggle').forEach(btn => {
 
 applyCursorState();
 
-// ===== Project Preview =====
-const preview = document.getElementById('preview');
-const previewInner = document.getElementById('previewInner');
-let previewRafId = null;
-let previewTick = null;
-
-if (preview && previewInner && finePointer.matches && !reduceMotion.matches) {
-  const previewData = {
-    '1': { title: 'Orbita', type: 'App Fintech' },
-    '2': { title: 'Nimbus', type: 'Plataforma SaaS' },
-    '3': { title: 'Mesa & Co.', type: 'E-commerce' },
-    '4': { title: 'Hojaverde', type: 'App de Bienestar' },
-    '5': { title: 'Atlas', type: 'Web Editorial' }
-  };
-
-  let previewX = 0, previewY = 0;
-  let targetPreviewX = 0, targetPreviewY = 0;
-
-  previewTick = function() {
-    previewX += (targetPreviewX - previewX) * 0.1;
-    previewY += (targetPreviewY - previewY) * 0.1;
-    preview.style.left = previewX + 'px';
-    preview.style.top = previewY + 'px';
-    previewRafId = requestAnimationFrame(previewTick);
-  };
-  previewRafId = requestAnimationFrame(previewTick);
-
-  document.querySelectorAll('.project').forEach(project => {
-    project.addEventListener('mouseenter', () => {
-      const num = project.getAttribute('data-preview');
-      const data = previewData[num];
-      previewInner.className = 'project-preview-inner preview-' + num;
-      previewInner.querySelector('.preview-title').textContent = data.title;
-      previewInner.querySelector('.preview-type').textContent = data.type;
-      preview.classList.add('active');
-    });
-    project.addEventListener('mouseleave', () => preview.classList.remove('active'));
-    project.addEventListener('mousemove', (e) => {
-      targetPreviewX = e.clientX;
-      targetPreviewY = e.clientY - 20;
-    });
-  });
-}
-
 // Pausa los bucles rAF cuando el usuario cambia de tab
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     if (cursorRafId) { cancelAnimationFrame(cursorRafId); cursorRafId = null; }
-    if (previewRafId) { cancelAnimationFrame(previewRafId); previewRafId = null; }
   } else {
     if (cursorTick && !cursorRafId) cursorRafId = requestAnimationFrame(cursorTick);
-    if (previewTick && !previewRafId) previewRafId = requestAnimationFrame(previewTick);
   }
 });
 
