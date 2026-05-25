@@ -248,6 +248,148 @@ window.PROJECTS = {
       { metric: '2', label: 'temas (claro/oscuro)' },
       { metric: '+30%', label: 'velocidad de desarrollo' }
     ]
+  },
+
+  'betterfly-onboarding': {
+    num: '011', preview: 4,
+    company: 'Betterfly', initial: 'Bt',
+    title: 'Betterfly Onboarding v2', category: 'Insurtech', year: '2021',
+    role: 'Product Designer (UX/UI)', client: 'Betterfly',
+    duration: '4 meses',
+    team: '1 Product Designer, 1 PM, 2 Ingenieros Frontend',
+    services: ['UX Research', 'User Testing', 'Wireframing', 'UI Design', 'Sistema de Diseño', 'Prototipado'],
+    tags: ['Insurtech', 'Móvil', 'UX Research'],
+    summary: 'Rediseño del flujo de enrolamiento para usuarios nuevos de seguro digital. De 12 pasos a 5, reduciendo el abandono de 60% a 10%.',
+    challenge: 'El flujo de onboarding original era complejo: 12 pasos con múltiples pantallas sin contexto claro, términos de seguros sin explicar y validaciones confusas. 60% de los usuarios abandonaba sin completar el registro y el proceso tomaba 15 minutos en promedio.',
+    opportunity: 'Simplificar y clarificar el flujo para que usuarios nuevos entiendan rápidamente qué es Betterfly y puedan completar su registro y obtener una cotización en menos de 3 minutos.',
+    solution: 'Simplifiqué el onboarding de 12 pasos a 5 consolidando pasos redundantes y usando validaciones asincrónicas. Agregué una pantalla de bienvenida con propuesta de valor clara, tooltips contextuales para términos de seguros y un resumen simplificado de T&C de 200 palabras en lugar de 5.000.',
+    conclusion: 'Este proyecto demostró que en InsureTech la simplicidad no es el enemigo de la regulación — es su aliado. Al reducir el onboarding de 12 pasos a 5, agregar educación contextual y enfocarse en la propuesta de valor, logramos aumentar la conversión en 500%, reducir el tiempo en 81% y mejorar el NPS de 3.1 a 4.6, manteniendo el cumplimiento regulatorio.',
+    outcome: [
+      { metric: '−50pp', label: 'abandono (60% → 10%)' },
+      { metric: '−81%', label: 'tiempo de setup (15 → 2.8 min)' },
+      { metric: '4.6/5', label: 'satisfacción post-onboarding' }
+    ],
+    problemData: [
+      { value: '60%', label: 'abandono en onboarding' },
+      { value: '15 min', label: 'tiempo promedio de setup' },
+      { value: '32%', label: 'completaban perfil de salud' }
+    ],
+    objectives: [
+      'Reducir abandono de 60% a máximo 15% (meta: 10%)',
+      'Reducir tiempo de setup de 15 minutos a menos de 3 minutos',
+      'Aumentar completitud de perfil de salud a 75% en primeras 24h',
+      'Lograr NPS de 4.5/5 en post-onboarding survey'
+    ],
+    phases: ['Research', 'Ideación', 'Diseño', 'Testing & Iteración'],
+    principles: [
+      'Claridad: explicar cada paso y por qué es necesario',
+      'Simplicidad: reducir pasos al mínimo necesario',
+      'Educación: contextualizar términos de seguros con ejemplos',
+      'Confianza: mostrar transparencia y seguridad en cada etapa'
+    ],
+    research: {
+      users: 25,
+      findings: [
+        '72% no entendía qué diferenciaba a Betterfly de otros seguros — no había propuesta de valor clara al inicio.',
+        '68% se perdía en términos como Cobertura, Deducible, Prima, Póliza y Siniestro.',
+        'El onboarding tenía 12 pasos, muchos redundantes. Los usuarios reportaban fatiga y validaciones múltiples.'
+      ],
+      personas: [
+        {
+          name: 'Alejandro', age: 30, profession: 'IT Professional',
+          goal: 'Contratar un seguro de salud sin complicaciones burocráticas, con buen cubrimiento y precio justo.',
+          frustration: 'Los procesos burocráticos y términos incomprensibles. No quiere perder 20 minutos en registro.'
+        },
+        {
+          name: 'Carla', age: 28, profession: 'Student / Part-time worker',
+          goal: 'Un seguro básico de salud asequible, simple de contratar desde el celular.',
+          frustration: 'Apps complicadas. Si necesita 15 pasos para empezar, abandona. Especialmente en móvil.'
+        }
+      ]
+    },
+    concepts: [
+      'Wizard Lineal — 12 pasos en secuencia. Descartado: muy largo, sin contexto educativo.',
+      'Modular — 5 pasos grandes con sub-componentes. Mejor balance entre claridad y complejidad. [GANADOR]',
+      'Progressive Profiling — recolectar información mínima primero. Descartado: crea fricción en cotización que requiere datos completos.'
+    ],
+    winningConcept: 'Modular: 5 pasos claros con educación contextual en cada pantalla, preferido por 80% de usuarios en testing.',
+    flows: [
+      'Flujo 1 — Registro: Welcome Screen → Email/Password → Verification → Profile Setup → Security Settings',
+      'Flujo 2 — Salud: Basic Health Questions → Medical History → Current Medications → Lifestyle → Health Summary',
+      'Flujo 3 — Cotización: Choose Plan → Review Coverage → Enter Payment Info → Confirm Policy → Success'
+    ],
+    decisions: [
+      {
+        decision: 'Agregar Welcome Screen con propuesta de valor',
+        impact: '+57pp en comprensión de la propuesta (28% → 85%). Un solo paso con ROI altísimo.'
+      },
+      {
+        decision: 'Simplificar de 12 pasos a 5 con validaciones asincrónicas',
+        impact: '−91% en tiempo de setup: de 15 minutos a 2.8 minutos promedio.'
+      },
+      {
+        decision: 'Tooltips contextuales con definición + ejemplo práctico para términos técnicos',
+        impact: '82% de usuarios entendió los términos de seguros (vs 32% baseline).'
+      },
+      {
+        decision: 'T&C simplificados: resumen de 200 palabras + link al documento completo',
+        impact: '94% de usuarios completó el paso (vs 58% antes). Sin perder cumplimiento regulatorio.'
+      }
+    ],
+    designSystem: {
+      colors: 3,
+      components: 8,
+      typography: 'Inter Bold 32px / Regular 14-16px / Medium 12px'
+    },
+    testing: {
+      users: 35,
+      type: 'Moderated Testing + A/B en producción',
+      findings: [
+        { status: 'success', text: 'Welcome Screen: 92% llegó a completar onboarding (vs 40% antes). Usuarios reportaron "finalmente entiendo de qué se trata".' },
+        { status: 'warning', text: 'Tooltips de términos: algunos usuarios no notaban el info icon — iterado a color naranja con animación.' },
+        { status: 'success', text: 'Resumen de T&C: 94% completó el paso sin revisar el documento legal completo.' },
+        { status: 'warning', text: '8% no recibía email de confirmación — se agregó "Reenviar email" y SMS como alternativa.' }
+      ],
+      iterations: [
+        'Info icons con color naranja + animación pulse al tocar — +45% en uso de tooltips',
+        'SMS como fallback en verificación de email + botón reenviar visible — −67% en fricción en ese paso',
+        'Layout vertical en mobile para progress bar — +12% completion en pantallas pequeñas'
+      ],
+      metrics: [
+        { metric: 'Completion Rate', target: '85%', result: '92% ✓' },
+        { metric: 'Time to Complete', target: '< 5 min', result: '2.8 min ✓' },
+        { metric: 'User Satisfaction', target: '4.0/5', result: '4.6/5 ✓' },
+        { metric: 'Health Profile Completion', target: '70%', result: '76% ✓' },
+        { metric: 'Plan Selection Rate', target: '75%', result: '88% ✓' }
+      ]
+    },
+    testimonials: [
+      {
+        quote: 'El proceso anterior era frustrante. No entendía por qué necesitaban tanta información. Ahora es directo al punto. Me tomó menos de 3 minutos. Muy impresionante.',
+        author: 'Alejandro S.', role: '30, IT Professional'
+      },
+      {
+        quote: 'Finalmente una app de seguros que no es complicada. Los términos explicados ayudan mucho. Recomendaría a mis amigas.',
+        author: 'Carla M.', role: '28, Student'
+      },
+      {
+        quote: 'El tooltip de "deducible" fue clave. Entendí finalmente cómo funcionaba. Sin eso, hubiera abandonado.',
+        author: 'María T.', role: '35, Accountant'
+      }
+    ],
+    lessons: [
+      'Educación inline es crítica en InsureTech: un tooltip con 1 frase + ejemplo práctico es más efectivo que largos documentos de ayuda.',
+      'Menos pasos > contenido perfecto: cada paso adicional reduce entre 5–10% el completion rate.',
+      'Welcome screens funcionan: una pantalla de 30 segundos aumentó la comprensión de 28% a 85%.',
+      'Asincronía es tu amiga: validaciones en background mejoran la velocidad percibida significativamente.',
+      'Regulación ≠ Complejidad: se puede ser simple y cumplir regulación simultáneamente con educación clara.'
+    ],
+    nextSteps: [
+      'Q1 2022: Social Onboarding con referral program integrado durante registro',
+      'Q2 2022: Multi-Language Support — Español, Portugués e Inglés para expansión regional',
+      'Q3 2022: Advanced Health Pathways para seguro de vida y hogar',
+      'Q4 2022: Business Accounts para pólizas colectivas con dashboard de administrador'
+    ]
   }
 };
 
@@ -323,13 +465,13 @@ if (!customElements.get('project-card')) {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug');
   const data = window.PROJECTS || {};
-  const project = slug && data[slug];
+  const p = slug && data[slug];
 
-  // Slug inválido o ausente → vuelve a la lista
-  if (!project) {
-    window.location.replace('work.html');
-    return;
-  }
+  if (!p) { window.location.replace('work.html'); return; }
+
+  const esc = s => String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   const set = (key, value) => {
     document.querySelectorAll(`[data-pj="${key}"]`).forEach(el => {
@@ -337,53 +479,256 @@ if (!customElements.get('project-card')) {
     });
   };
 
-  // Texto plano
-  set('num', project.num);
-  set('category', project.category);
-  set('title', project.title);
-  set('title-cover', project.title);
-  set('year', project.year);
-  set('year2', project.year);
-  set('client', project.client);
-  set('role', project.role);
-  set('summary', project.summary);
-  set('challenge', project.challenge);
-  set('solution', project.solution);
+  // ── Texto plano ──────────────────────────────
+  set('num',          p.num);
+  set('category',     p.category);
+  set('title',        p.title);
+  set('title-cover',  p.title);
+  set('year',         p.year);
+  set('year2',        p.year);
+  set('client',       p.client);
+  set('role',         p.role);
+  set('duration',     p.duration || '—');
+  set('team',         p.team || '—');
+  set('summary',      p.summary);
+  set('challenge',    p.challenge);
+  set('opportunity',  p.opportunity || '');
+  set('solution',     p.solution);
+  set('conclusion',   p.conclusion || '');
 
-  // Company badge
-  set('company', project.company || '');
-  set('company-initial', project.initial || (project.company ? project.company[0] : ''));
+  // ── Company badge ────────────────────────────
+  set('company',         p.company || '');
+  set('company-initial', p.initial || (p.company ? p.company[0] : ''));
 
-  // Document title + meta
-  document.title = `${project.title} — Patricio Bustamante`;
+  // ── Document title + meta ────────────────────
+  document.title = `${p.title} — Patricio Bustamante`;
   const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute('content', `${project.title} — Patricio Bustamante`);
+  if (ogTitle) ogTitle.setAttribute('content', `${p.title} — Patricio Bustamante`);
   const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute('content', project.summary);
+  if (desc) desc.setAttribute('content', p.summary);
 
-  // Cover: aplica el gradiente del proyecto (.preview-{n})
+  // ── Cover gradient ───────────────────────────
   const cover = document.getElementById('pj-cover');
-  if (cover) cover.classList.add('preview-' + project.preview);
+  if (cover) cover.classList.add('preview-' + p.preview);
 
-  // Servicios → skill-pills
+  // ── Servicios → skill-pills ──────────────────
   const servicesHost = document.querySelector('[data-pj="services"]');
-  if (servicesHost && Array.isArray(project.services)) {
-    servicesHost.innerHTML = project.services
-      .map(s => `<span class="skill-pill">${s}</span>`)
+  if (servicesHost && Array.isArray(p.services)) {
+    servicesHost.innerHTML = p.services
+      .map(s => `<span class="skill-pill">${esc(s)}</span>`)
       .join('');
   }
 
-  // Resultados → outcome cards
-  const outcomeHost = document.querySelector('[data-pj="outcome"]');
-  if (outcomeHost && Array.isArray(project.outcome)) {
-    outcomeHost.innerHTML = project.outcome.map(o => `
-      <div class="outcome-card">
-        <div class="outcome-metric">${o.metric}</div>
-        <div class="outcome-label">${o.label}</div>
+  // ── Problem data stats ───────────────────────
+  const problemDataHost = document.querySelector('[data-pj="problemData"]');
+  if (problemDataHost && Array.isArray(p.problemData)) {
+    problemDataHost.innerHTML = p.problemData.map(d => `
+      <div class="pj-stat-card">
+        <div class="pj-stat-value">${esc(d.value)}</div>
+        <div class="pj-stat-label">${esc(d.label)}</div>
       </div>`).join('');
   }
 
-  // Siguiente proyecto (cíclico)
+  // ── Objetivos ────────────────────────────────
+  const objectivesHost = document.querySelector('[data-pj="objectives"]');
+  if (objectivesHost && Array.isArray(p.objectives)) {
+    objectivesHost.innerHTML = p.objectives
+      .map(o => `<li class="pj-list-item">${esc(o)}</li>`)
+      .join('');
+  }
+
+  // ── Fases del proceso ────────────────────────
+  const phasesHost = document.querySelector('[data-pj="phases"]');
+  if (phasesHost && Array.isArray(p.phases)) {
+    phasesHost.innerHTML = p.phases
+      .map((ph, i) => `<li class="pj-phase-item">
+        <span class="pj-phase-num">0${i + 1}</span>
+        <span class="pj-phase-name">${esc(ph)}</span>
+      </li>`)
+      .join('');
+  }
+
+  // ── Principios ───────────────────────────────
+  const principlesHost = document.querySelector('[data-pj="principles"]');
+  if (principlesHost && Array.isArray(p.principles)) {
+    principlesHost.innerHTML = p.principles
+      .map(pr => `<li class="pj-principle-item">
+        <span class="pj-principle-mark" aria-hidden="true">—</span>
+        ${esc(pr)}
+      </li>`)
+      .join('');
+  }
+
+  // ── Research ─────────────────────────────────
+  const researchHost = document.querySelector('[data-pj="research"]');
+  if (researchHost && p.research) {
+    const r = p.research;
+    const findingsHtml = Array.isArray(r.findings)
+      ? `<ul class="pj-finding-list">${r.findings.map(f => `<li>${esc(f)}</li>`).join('')}</ul>`
+      : '';
+    const personasHtml = Array.isArray(r.personas)
+      ? `<div class="pj-persona-grid">${r.personas.map(pe => `
+          <div class="pj-persona-card">
+            <div class="pj-persona-name">${esc(pe.name)}, ${esc(String(pe.age))}</div>
+            <div class="pj-persona-role">${esc(pe.profession)}</div>
+            <div class="pj-persona-goal"><strong>Quiere:</strong> ${esc(pe.goal)}</div>
+            <div class="pj-persona-pain"><strong>Le frustra:</strong> ${esc(pe.frustration)}</div>
+          </div>`).join('')}</div>`
+      : '';
+    researchHost.innerHTML = `
+      <p class="pj-research-count"><strong>${esc(String(r.users))}</strong> usuarios entrevistados</p>
+      <h4 class="pj-sub-title">Hallazgos principales</h4>
+      ${findingsHtml}
+      <h4 class="pj-sub-title">Personas</h4>
+      ${personasHtml}`;
+  }
+
+  // ── Conceptos ────────────────────────────────
+  const conceptsHost = document.querySelector('[data-pj="concepts"]');
+  if (conceptsHost && Array.isArray(p.concepts)) {
+    conceptsHost.innerHTML = p.concepts
+      .map((c, i) => `<li class="pj-concept-item">
+        <span class="pj-concept-num">${i + 1}</span>
+        <span>${esc(c)}</span>
+      </li>`)
+      .join('');
+  }
+
+  // ── Concepto ganador ─────────────────────────
+  const winnerHost = document.querySelector('[data-pj="winningConcept"]');
+  if (winnerHost && p.winningConcept) {
+    winnerHost.innerHTML = `<p class="pj-winner-concept"><strong>Ganador:</strong> ${esc(p.winningConcept)}</p>`;
+  }
+
+  // ── Flujos ───────────────────────────────────
+  const flowsHost = document.querySelector('[data-pj="flows"]');
+  if (flowsHost && Array.isArray(p.flows)) {
+    flowsHost.innerHTML = p.flows
+      .map(f => `<li class="pj-list-item">${esc(f)}</li>`)
+      .join('');
+  }
+
+  // ── Decisiones clave ─────────────────────────
+  const decisionsHost = document.querySelector('[data-pj="decisions"]');
+  if (decisionsHost && Array.isArray(p.decisions)) {
+    decisionsHost.innerHTML = p.decisions.map(d => `
+      <div class="pj-decision-card">
+        <div class="pj-decision-text">${esc(d.decision)}</div>
+        <div class="pj-decision-impact">${esc(d.impact)}</div>
+      </div>`).join('');
+  }
+
+  // ── Design System ────────────────────────────
+  const dsHost = document.querySelector('[data-pj="designSystem"]');
+  if (dsHost && p.designSystem) {
+    const ds = p.designSystem;
+    dsHost.innerHTML = `
+      <div class="pj-ds-grid">
+        <div class="pj-ds-item">
+          <span class="pj-ds-value">${esc(String(ds.colors))}</span>
+          <span class="pj-ds-label">Colores</span>
+        </div>
+        <div class="pj-ds-item">
+          <span class="pj-ds-value">${esc(String(ds.components))}</span>
+          <span class="pj-ds-label">Componentes</span>
+        </div>
+        <div class="pj-ds-item pj-ds-item--wide">
+          <span class="pj-ds-value pj-ds-value--sm">${esc(ds.typography)}</span>
+          <span class="pj-ds-label">Tipografía</span>
+        </div>
+      </div>`;
+  }
+
+  // ── Testing / Validación ─────────────────────
+  const testingHost = document.querySelector('[data-pj="testing"]');
+  if (testingHost && p.testing) {
+    const t = p.testing;
+    const iconMap = { success: '✓', warning: '△', error: '✕' };
+    const findingsHtml = Array.isArray(t.findings)
+      ? t.findings.map(f => `
+          <li class="pj-test-finding pj-test-finding--${esc(f.status)}">
+            <span class="pj-test-icon" aria-hidden="true">${iconMap[f.status] || '·'}</span>
+            <span>${esc(f.text)}</span>
+          </li>`).join('')
+      : '';
+    const iterationsHtml = Array.isArray(t.iterations)
+      ? t.iterations.map(it => `<li class="pj-list-item">${esc(it)}</li>`).join('')
+      : '';
+    const metricsHtml = Array.isArray(t.metrics)
+      ? `<table class="pj-metrics-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Métrica</th>
+              <th scope="col">Target</th>
+              <th scope="col">Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${t.metrics.map(m => `
+              <tr>
+                <td>${esc(m.metric)}</td>
+                <td>${esc(m.target)}</td>
+                <td class="pj-metric-result">${esc(m.result)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>`
+      : '';
+    testingHost.innerHTML = `
+      <p class="pj-testing-meta">
+        <strong>${esc(String(t.users))}</strong> usuarios · ${esc(t.type)}
+      </p>
+      <h4 class="pj-sub-title">Hallazgos</h4>
+      <ul class="pj-test-finding-list">${findingsHtml}</ul>
+      ${iterationsHtml ? `<h4 class="pj-sub-title">Iteraciones realizadas</h4><ul class="pj-iteration-list">${iterationsHtml}</ul>` : ''}
+      ${metricsHtml ? `<h4 class="pj-sub-title">Métricas · Target vs. Resultado</h4>${metricsHtml}` : ''}`;
+  }
+
+  // ── Outcome cards ────────────────────────────
+  const outcomeHost = document.querySelector('[data-pj="outcome"]');
+  if (outcomeHost && Array.isArray(p.outcome)) {
+    outcomeHost.innerHTML = p.outcome.map(o => `
+      <div class="outcome-card">
+        <div class="outcome-metric">${esc(o.metric)}</div>
+        <div class="outcome-label">${esc(o.label)}</div>
+      </div>`).join('');
+  }
+
+  // ── Testimonios ──────────────────────────────
+  const testimonialsHost = document.querySelector('[data-pj="testimonials"]');
+  if (testimonialsHost && Array.isArray(p.testimonials) && p.testimonials.length) {
+    testimonialsHost.innerHTML = `
+      <div class="pj-testimonial-list">
+        ${p.testimonials.map(t => `
+          <figure class="pj-testimonial">
+            <blockquote class="pj-testimonial-quote">"${esc(t.quote)}"</blockquote>
+            <figcaption class="pj-testimonial-author">
+              <strong>${esc(t.author)}</strong> · ${esc(t.role)}
+            </figcaption>
+          </figure>`).join('')}
+      </div>`;
+  }
+
+  // ── Lecciones ────────────────────────────────
+  const lessonsHost = document.querySelector('[data-pj="lessons"]');
+  if (lessonsHost && Array.isArray(p.lessons) && p.lessons.length) {
+    lessonsHost.innerHTML = `
+      <div class="pj-lessons-block">
+        <h3 class="pj-sub-title">Lo que aprendí</h3>
+        <ol class="pj-lesson-list">
+          ${p.lessons.map(l => `<li class="pj-list-item">${esc(l)}</li>`).join('')}
+        </ol>
+      </div>`;
+  }
+
+  // ── Próximos pasos ───────────────────────────
+  const nextStepsHost = document.querySelector('[data-pj="nextSteps"]');
+  if (nextStepsHost && Array.isArray(p.nextSteps)) {
+    nextStepsHost.innerHTML = p.nextSteps
+      .map(s => `<li class="pj-list-item">${esc(s)}</li>`)
+      .join('');
+  }
+
+  // ── Siguiente proyecto (cíclico) ─────────────
   const order = window.PROJECT_ORDER || Object.keys(data);
   const idx = order.indexOf(slug);
   const nextSlug = order[(idx + 1) % order.length];
