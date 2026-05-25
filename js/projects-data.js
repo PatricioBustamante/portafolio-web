@@ -176,7 +176,7 @@ window.PROJECTS = {
 
   'nimbus-studio': {
     num: '002', preview: 2,
-    recentProject: true, visibleProject: true,
+    recentProject: false, visibleProject: true,
     company: 'Nimbus', initial: 'Nb',
     title: 'Nimbus Studio', category: 'SaaS', year: '2025',
     role: 'Senior Product Designer', client: 'Nimbus',
@@ -191,23 +191,7 @@ window.PROJECTS = {
       { metric: '4.6', label: 'rating de usuarios beta' }
     ]
   },
-  'mesa-co': {
-    num: '003', preview: 3,
-    recentProject: true, visibleProject: true,
-    company: 'Mesa', initial: 'Ms',
-    title: 'Mesa Co', category: 'E-commerce', year: '2024',
-    role: 'Product Designer', client: 'Mesa',
-    services: ['UX/UI Design', 'Prototipado', 'Testing'],
-    tags: ['E-commerce', 'UX/UI', 'Prototipado'],
-    summary: 'Rediseño de plataforma de e-commerce para productos gourmet. Enfoque en experiencia móvil y optimización de checkout.',
-    challenge: 'La plataforma original tenía una tasa de abandono del carrito del 75% y una experiencia móvil deficiente que no reflejaba la calidad premium de los productos.',
-    solution: 'Rediseñé la experiencia móvil con un enfoque en la simplicidad y el storytelling visual, y optimicé el proceso de checkout para reducir fricción.',
-    outcome: [
-      { metric: '−75%', label: 'abandono del carrito' },
-      { metric: '+30%', label: 'conversiones móviles' },
-      { metric: '4.8', label: 'rating de usuarios' }
-    ]
-  }
+  
 };
 
 /* Lista ordenada de slugs para navegación "siguiente proyecto". */
