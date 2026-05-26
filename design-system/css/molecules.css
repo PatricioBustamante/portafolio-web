@@ -456,7 +456,7 @@ project-card > .project { border-bottom: none; }
   letter-spacing: var(--tracking-wider);
 }
 .timeline-detail {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   line-height: var(--leading-relaxed);
   color: var(--color-ink-on-dark-soft);
   margin-top: var(--space-1);
