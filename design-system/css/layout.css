@@ -242,6 +242,12 @@ section {
   .project-outcome { padding: var(--section-py-mobile) var(--container-px-mobile); }
   .outcome-grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .project-next { padding: var(--space-8) var(--container-px-mobile); }
+  .pj-info-grid { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .pj-two-col { grid-template-columns: 1fr; gap: var(--space-6); }
+  .pj-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 var(--container-px-mobile) var(--section-py-mobile);
+  }
 }
 
 /* ----- ≤ 480px · móvil pequeño ----- */
@@ -255,4 +261,6 @@ section {
     gap: var(--space-3);
   }
   .project-meta-grid { grid-template-columns: 1fr; }
+  .pj-info-grid { grid-template-columns: 1fr; }
+  .pj-metrics-grid { grid-template-columns: 1fr; }
 }

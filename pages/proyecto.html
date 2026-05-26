@@ -18,8 +18,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 
-<!-- Design System · Atomic Design:
-     tokens → base → atoms → molecules → organisms → layout -->
 <link rel="stylesheet" href="../design-system/css/tokens.css">
 <link rel="stylesheet" href="../design-system/css/base.css">
 <link rel="stylesheet" href="../design-system/css/atoms.css">
@@ -33,7 +31,6 @@
 
 <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 
-<!-- Cursor -->
 <div class="cursor-dot" id="cursor" aria-hidden="true"></div>
 
 <!-- Loader -->
@@ -51,12 +48,11 @@
   </div>
 </div>
 
-<!-- Navigation -->
 <site-header current="work"></site-header>
 
 <main id="main-content">
 
-  <!-- ① PAGE HERO ─────────────────────────────── -->
+  <!-- ① HERO ─────────────────────────────────── -->
   <section class="page-hero" aria-labelledby="pj-title">
     <nav class="breadcrumb" aria-label="Migas de pan">
       <ol class="breadcrumb-list">
@@ -88,180 +84,102 @@
     </div>
   </section>
 
-  <!-- ③ INTRO · Resumen + metadatos ───────────── -->
-  <section class="project-intro reveal">
-    <p class="project-summary" data-pj="summary"></p>
-    <dl class="project-meta-grid">
-      <div class="project-meta">
-        <dt class="project-meta-label">Cliente</dt>
-        <dd class="project-meta-value" data-pj="client"></dd>
+  <!-- ③ INFORMACIÓN DEL PROYECTO ───────────────── -->
+  <section class="pj-section pj-info reveal" aria-label="Información del proyecto">
+    <div class="pj-info-grid">
+      <div class="pj-info-item">
+        <span class="pj-info-label">Nombre</span>
+        <span class="pj-info-value" data-pj="title2"></span>
       </div>
-      <div class="project-meta">
-        <dt class="project-meta-label">Rol</dt>
-        <dd class="project-meta-value" data-pj="role"></dd>
+      <div class="pj-info-item">
+        <span class="pj-info-label">Año</span>
+        <span class="pj-info-value" data-pj="year2"></span>
       </div>
-      <div class="project-meta">
-        <dt class="project-meta-label">Año</dt>
-        <dd class="project-meta-value" data-pj="year2"></dd>
+      <div class="pj-info-item">
+        <span class="pj-info-label">Cliente</span>
+        <span class="pj-info-value" data-pj="client"></span>
       </div>
-      <div class="project-meta">
-        <dt class="project-meta-label">Duración</dt>
-        <dd class="project-meta-value" data-pj="duration"></dd>
+      <div class="pj-info-item">
+        <span class="pj-info-label">Rol</span>
+        <span class="pj-info-value" data-pj="role"></span>
       </div>
-      <div class="project-meta">
-        <dt class="project-meta-label">Equipo</dt>
-        <dd class="project-meta-value" data-pj="team"></dd>
-      </div>
-      <div class="project-meta">
-        <dt class="project-meta-label">Servicios</dt>
-        <dd class="project-meta-value">
-          <div class="skills-list" data-pj="services"></div>
-        </dd>
-      </div>
-    </dl>
+    </div>
   </section>
 
   <!-- ④ DESAFÍO ────────────────────────────────── -->
   <section class="pj-section pj-challenge" aria-labelledby="pj-challenge-title">
     <div class="pj-section-header reveal">
-      <p class="pj-section-label">01 — El desafío</p>
+      <p class="pj-section-label">01 — Desafío</p>
       <h2 class="pj-section-title" id="pj-challenge-title">El <em>problema</em></h2>
     </div>
+    <div class="pj-section-body">
+      <p class="overview-text reveal" data-pj="challenge"></p>
+    </div>
+  </section>
 
+  <!-- ⑤ OBJETIVOS ──────────────────────────────── -->
+  <section class="pj-section pj-objectives" aria-labelledby="pj-objectives-title">
+    <div class="pj-section-header reveal">
+      <p class="pj-section-label">02 — Objetivos</p>
+      <h2 class="pj-section-title" id="pj-objectives-title">¿Qué queríamos <em>lograr</em>?</h2>
+    </div>
     <div class="pj-section-body">
       <div class="overview-block reveal">
-        <h3 class="overview-title">Contexto</h3>
-        <p class="overview-text" data-pj="challenge"></p>
+        <h3 class="overview-title">Objetivo principal</h3>
+        <p class="overview-text pj-main-objective" data-pj="mainObjective"></p>
       </div>
-
-      <div class="pj-problem-data reveal-stagger" data-pj="problemData" aria-label="Datos que prueban el problema"></div>
-
       <div class="overview-block reveal">
-        <h3 class="overview-title">La oportunidad</h3>
-        <p class="overview-text" data-pj="opportunity"></p>
-      </div>
-
-      <div class="overview-block reveal">
-        <h3 class="overview-title">Objetivos</h3>
+        <h3 class="overview-title">Objetivos secundarios</h3>
         <ul class="pj-objective-list" data-pj="objectives"></ul>
       </div>
     </div>
   </section>
 
-  <!-- ⑤ ENFOQUE ────────────────────────────────── -->
-  <section class="pj-section pj-approach" aria-labelledby="pj-approach-title">
-    <div class="pj-section-header reveal">
-      <p class="pj-section-label">02 — Enfoque</p>
-      <h2 class="pj-section-title" id="pj-approach-title">Metodología y <em>principios</em></h2>
-    </div>
-    <div class="pj-section-body">
-      <div class="overview-block reveal">
-        <h3 class="overview-title">Fases del proceso</h3>
-        <ol class="pj-phase-list reveal-stagger" data-pj="phases" aria-label="Fases del proceso de diseño"></ol>
-      </div>
-      <div class="overview-block reveal">
-        <h3 class="overview-title">Principios de diseño</h3>
-        <ul class="pj-principle-list reveal-stagger" data-pj="principles"></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑥ PROCESO DE DISEÑO ──────────────────────── -->
-  <section class="pj-section pj-process" aria-labelledby="pj-process-title">
-    <div class="pj-section-header reveal">
-      <p class="pj-section-label">03 — Proceso</p>
-      <h2 class="pj-section-title" id="pj-process-title">Proceso de <em>diseño</em></h2>
-    </div>
-    <div class="pj-section-body">
-
-      <!-- Research -->
-      <div class="pj-process-block reveal">
-        <h3 class="overview-title">Research</h3>
-        <div class="pj-research" data-pj="research"></div>
-      </div>
-
-      <!-- Conceptos -->
-      <div class="pj-process-block reveal">
-        <h3 class="overview-title">Conceptos explorados</h3>
-        <ul class="pj-concept-list" data-pj="concepts"></ul>
-        <div class="pj-winning-concept" data-pj="winningConcept"></div>
-      </div>
-
-      <!-- Flujos -->
-      <div class="pj-process-block reveal">
-        <h3 class="overview-title">Flujos principales</h3>
-        <ol class="pj-flow-list" data-pj="flows"></ol>
-      </div>
-
-      <!-- Decisiones clave -->
-      <div class="pj-process-block reveal">
-        <h3 class="overview-title">Decisiones clave</h3>
-        <div class="pj-decision-list reveal-stagger" data-pj="decisions"></div>
-      </div>
-
-      <!-- Design System -->
-      <div class="pj-process-block reveal">
-        <h3 class="overview-title">Design System</h3>
-        <div class="pj-ds-summary" data-pj="designSystem"></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ⑦ SOLUCIÓN ───────────────────────────────── -->
+  <!-- ⑥ QUÉ SE CUMPLIÓ ────────────────────────── -->
   <section class="pj-section pj-solution" aria-labelledby="pj-solution-title">
     <div class="pj-section-header reveal">
-      <p class="pj-section-label">04 — Solución</p>
+      <p class="pj-section-label">03 — Qué se cumplió</p>
       <h2 class="pj-section-title" id="pj-solution-title">La <em>solución</em></h2>
     </div>
     <div class="pj-section-body">
       <div class="overview-block reveal">
+        <h3 class="overview-title">Solución</h3>
         <p class="overview-text" data-pj="solution"></p>
       </div>
+      <div class="pj-two-col reveal-stagger">
+        <div class="overview-block">
+          <h3 class="overview-title">Procesos</h3>
+          <ul class="pj-objective-list" data-pj="processes"></ul>
+        </div>
+        <div class="overview-block">
+          <h3 class="overview-title">Herramientas</h3>
+          <ul class="pj-objective-list" data-pj="tools"></ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ⑧ VALIDACIÓN ────────────────────────────── -->
-  <section class="pj-section pj-validation" aria-labelledby="pj-validation-title">
-    <div class="pj-section-header reveal">
-      <p class="pj-section-label">05 — Validación</p>
-      <h2 class="pj-section-title" id="pj-validation-title">Testing e <em>iteraciones</em></h2>
-    </div>
-    <div class="pj-section-body">
-      <div class="pj-testing reveal" data-pj="testing"></div>
-    </div>
-  </section>
-
-  <!-- ⑨ IMPACTO ────────────────────────────────── -->
-  <section class="project-outcome" aria-labelledby="pj-outcome-title">
+  <!-- ⑦ MÉTRICAS ───────────────────────────────── -->
+  <section class="project-outcome" aria-labelledby="pj-metrics-title">
     <div class="pj-section-header pj-section-header--inverted reveal">
-      <p class="pj-section-label">06 — Impacto</p>
-      <h2 class="pj-section-title" id="pj-outcome-title">Impacto <em>medible</em></h2>
+      <p class="pj-section-label">04 — Métricas</p>
+      <h2 class="pj-section-title" id="pj-metrics-title">Impacto <em>medible</em></h2>
     </div>
-    <div class="outcome-grid reveal-stagger" data-pj="outcome"></div>
-    <div class="pj-testimonials reveal" data-pj="testimonials"></div>
-    <div class="pj-lessons reveal" data-pj="lessons"></div>
+    <div class="pj-metrics-grid reveal-stagger" data-pj="metrics"></div>
   </section>
 
-  <!-- ⑩ QUÉ SIGUE ──────────────────────────────── -->
-  <section class="pj-section pj-future" aria-labelledby="pj-future-title">
+  <!-- ⑧ APRENDIZAJES ──────────────────────────── -->
+  <section class="pj-section pj-learnings" aria-labelledby="pj-learnings-title">
     <div class="pj-section-header reveal">
-      <p class="pj-section-label">07 — ¿Qué sigue?</p>
-      <h2 class="pj-section-title" id="pj-future-title">Próximos <em>pasos</em></h2>
+      <p class="pj-section-label">05 — Aprendizajes</p>
+      <h2 class="pj-section-title" id="pj-learnings-title">Lo que <em>aprendí</em></h2>
     </div>
     <div class="pj-section-body">
-      <div class="overview-block reveal">
-        <h3 class="overview-title">Roadmap</h3>
-        <ul class="pj-next-steps-list" data-pj="nextSteps"></ul>
-      </div>
-      <div class="overview-block reveal">
-        <h3 class="overview-title">Reflexión final</h3>
-        <p class="overview-text pj-conclusion" data-pj="conclusion"></p>
-      </div>
+      <ul class="pj-objective-list reveal" data-pj="lessons"></ul>
     </div>
   </section>
 
-  <!-- ⑪ SIGUIENTE PROYECTO ─────────────────────── -->
+  <!-- ⑨ SIGUIENTE PROYECTO ─────────────────────── -->
   <a class="project-next" data-pj="next" href="work.html">
     <span class="project-next-label">Siguiente proyecto</span>
     <span class="project-next-title" data-pj="next-title">Volver a proyectos</span>
@@ -272,7 +190,6 @@
 
 </main>
 
-<!-- Footer -->
 <site-footer></site-footer>
 
 </body>
